@@ -231,8 +231,8 @@
 <body>
     {{-- Print Controls (hidden when printing) --}}
     <div class="print-controls no-print">
-        <button onclick="window.print()">🖨️ Cetak Struk</button>
-        <button class="btn-back" onclick="window.location.href='{{ route('pos.index') }}'">← Kembali ke POS</button>
+        <button onclick="window.print()">🖨️ Print Receipt</button>
+        <button class="btn-back" onclick="window.location.href='{{ route('pos.index') }}'">← Return to POS</button>
     </div>
 
     {{-- Receipt Header --}}
@@ -240,31 +240,31 @@
         <div class="brand">☕ CafeSync</div>
         <div class="tagline">Artisanal Specialty Cafe</div>
         <div class="address">
-            Jl. Kopi Nusantara No.42, Jakarta<br>
-            Telp: (021) 555-CAFE
+            104 Artisan Blvd, Downtown Roastery<br>
+            Phone: (555) 019-CAFE
         </div>
     </div>
 
     {{-- Order Metadata --}}
     <div class="receipt-meta">
         <div class="row">
-            <span class="label">No. Order:</span>
+            <span class="label">Order #:</span>
             <span class="value font-tabular">#{{ str_pad($order->order_id, 4, '0', STR_PAD_LEFT) }}</span>
         </div>
         <div class="row">
-            <span class="label">Tanggal:</span>
-            <span class="value font-tabular">{{ $order->created_at ? $order->created_at->format('d/m/Y') : now()->format('d/m/Y') }}</span>
+            <span class="label">Date:</span>
+            <span class="value font-tabular">{{ $order->created_at ? $order->created_at->format('M d, Y') : now()->format('M d, Y') }}</span>
         </div>
         <div class="row">
-            <span class="label">Waktu:</span>
-            <span class="value font-tabular">{{ $order->created_at ? $order->created_at->format('H:i:s') : now()->format('H:i:s') }} WIB</span>
+            <span class="label">Time:</span>
+            <span class="value font-tabular">{{ $order->created_at ? $order->created_at->format('H:i:s') : now()->format('H:i:s') }}</span>
         </div>
         <div class="row">
-            <span class="label">Kasir:</span>
+            <span class="label">Cashier:</span>
             <span class="value">{{ $order->user->full_name ?? 'Staff' }}</span>
         </div>
         <div class="row">
-            <span class="label">Pembayaran:</span>
+            <span class="label">Payment:</span>
             <span class="value">
                 <span class="payment-badge">{{ $order->payment_method }} - {{ $order->payment_status }}</span>
             </span>
@@ -300,7 +300,7 @@
             <span class="font-tabular">${{ number_format($subtotal, 2) }}</span>
         </div>
         <div class="row">
-            <span>Pajak (10%)</span>
+            <span>Tax (10%)</span>
             <span class="font-tabular">${{ number_format($taxAmount, 2) }}</span>
         </div>
         <div class="row grand-total">
@@ -313,16 +313,16 @@
     <div class="payment-info">
         @if($order->payment_method === 'CASH')
         <div class="row">
-            <span>Tunai Diterima</span>
+            <span>Cash Tendered</span>
             <span class="font-tabular" style="font-weight:600;">${{ number_format($order->cash_tendered, 2) }}</span>
         </div>
         <div class="row">
-            <span>Kembalian</span>
+            <span>Change Due</span>
             <span class="font-tabular" style="font-weight:600; color:#16A34A;">${{ number_format($order->change_due, 2) }}</span>
         </div>
         @elseif($order->payment_method === 'QRIS')
         <div class="row">
-            <span>Metode</span>
+            <span>Method</span>
             <span style="font-weight:600;">Dynamic QRIS</span>
         </div>
         @endif
@@ -330,11 +330,11 @@
 
     {{-- Footer --}}
     <div class="receipt-footer">
-        <div class="thank-you">Terima Kasih!</div>
-        <p>Nikmati kopi Anda ☕</p>
+        <div class="thank-you">Thank You!</div>
+        <p>Enjoy your specialty coffee ☕</p>
         <p style="margin-top:6px;">
-            Powered by <strong>CafeSync v0.5.0</strong><br>
-            Sprint 4 • POS Terminal & Atomic Stock
+            Powered by <strong>CafeSync v1.0</strong><br>
+            POS Terminal &amp; Atomic Stock Engine
         </p>
     </div>
 </body>

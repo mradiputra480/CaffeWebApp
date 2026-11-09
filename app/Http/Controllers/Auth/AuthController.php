@@ -35,9 +35,9 @@ class AuthController extends Controller
             'password' => ['required', 'string'],
             'role' => ['nullable', 'string', 'in:STAFF,HRD,MANAGER'],
         ], [
-            'email.required' => 'Alamat email wajib diisi.',
-            'email.email' => 'Format email tidak valid.',
-            'password.required' => 'Kata sandi wajib diisi.',
+            'email.required' => 'Email address is required.',
+            'email.email' => 'Please provide a valid email format.',
+            'password.required' => 'Password is required.',
         ]);
 
         $user = User::where('email', $validated['email'])->first();
@@ -47,7 +47,7 @@ class AuthController extends Controller
             return back()
                 ->withInput($request->only('email', 'role'))
                 ->withErrors([
-                    'email' => 'Kredensial yang diberikan tidak cocok dengan data pengguna kami.',
+                    'email' => 'These credentials do not match our registered records.',
                 ]);
         }
 
@@ -61,7 +61,7 @@ class AuthController extends Controller
             return back()
                 ->withInput($request->only('email', 'role'))
                 ->withErrors([
-                    'email' => "Akun Anda saat ini terkunci demi alasan keamanan karena 3 kali kegagalan login berturut-turut. Silakan coba lagi dalam {$minutesLeft} menit.",
+                    'email' => "Your account is currently locked for security reasons due to 3 consecutive failed login attempts. Please retry in {$minutesLeft} minute(s).",
                 ]);
         }
 
@@ -88,7 +88,7 @@ class AuthController extends Controller
                 return back()
                     ->withInput($request->only('email', 'role'))
                     ->withErrors([
-                        'email' => 'Akun Anda telah dikunci otomatis selama 15 menit karena 3 kali kegagalan login berturut-turut demi alasan keamanan.',
+                        'email' => 'Your account has been automatically locked for 15 minutes due to 3 consecutive failed login attempts.',
                     ]);
             }
 
@@ -97,7 +97,7 @@ class AuthController extends Controller
             return back()
                 ->withInput($request->only('email', 'role'))
                 ->withErrors([
-                    'email' => "Kata sandi salah. Sisa kesempatan percobaan: {$remainingAttempts} kali sebelum akun dikunci selama 15 menit.",
+                    'email' => "Incorrect password. {$remainingAttempts} attempt(s) remaining before automatic 15-minute security lockout.",
                 ]);
         }
 
@@ -130,7 +130,7 @@ class AuthController extends Controller
 
         return redirect()
             ->route('login')
-            ->with('status', 'Anda telah berhasil keluar dari sistem CafeSync.');
+            ->with('status', 'You have been successfully logged out of CafeSync.');
     }
 
     /**
@@ -151,13 +151,13 @@ class AuthController extends Controller
         $targetEmail = $roleMap[$normalizedRole] ?? null;
 
         if (! $targetEmail) {
-            return redirect()->route('login')->withErrors(['email' => 'Peran demo tidak dikenali. Pilih Staff, HRD, atau Manager.']);
+            return redirect()->route('login')->withErrors(['email' => 'Unrecognized demo role. Please select Staff, HRD, or Manager.']);
         }
 
         $user = User::where('email', $targetEmail)->first();
 
         if (! $user) {
-            return redirect()->route('login')->withErrors(['email' => 'Akun demo belum ada di database. Silakan jalankan seeder: php artisan db:seed']);
+            return redirect()->route('login')->withErrors(['email' => 'Demo account not found in database. Please run seeder: php artisan db:seed']);
         }
 
         Auth::login($user);
@@ -167,7 +167,7 @@ class AuthController extends Controller
 
         return $this->redirectBasedOnRole($user)->with(
             'success',
-            "Selamat datang di Live Demo CafeSync! Anda saat ini masuk sebagai {$user->full_name} ({$user->role})."
+            "Welcome to the CafeSync Live Demo! You are currently exploring as {$user->full_name} ({$user->role})."
         );
     }
 

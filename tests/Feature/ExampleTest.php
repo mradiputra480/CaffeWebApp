@@ -20,7 +20,7 @@ class ExampleTest extends TestCase
 
         $response->assertOk();
         $response->assertSee('CafeSync');
-        $response->assertSee('Harmoni Operasional Kafe Spesialis Modern');
+        $response->assertSee('Seamless Operations for Modern Specialty Coffee');
     }
 
     /**

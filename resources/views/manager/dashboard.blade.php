@@ -21,10 +21,10 @@
                 </span>
             </div>
             <h1 class="text-2xl lg:text-3xl font-extrabold font-heading text-[#1E1B18] tracking-tight mt-0.5">
-                Dasbor Eksekutif dan Intelijen Operasional
+                Executive Analytics &amp; Operational Intelligence
             </h1>
             <p class="text-xs sm:text-sm text-[#78716C]">
-                Dasbor Eksekutif &amp; Intelijen Penjualan: Pengawasan finansial tingkat tinggi, tren jam sibuk, dan audit rasio biaya tenaga kerja.
+                Executive Dashboard &amp; Sales Intelligence: High-level financial oversight, peak hour velocity, and labor cost ratio audits.
             </p>
         </div>
 
@@ -40,19 +40,19 @@
             <div class="flex items-center bg-[#F4ECE7] p-1 rounded-xl border border-[#E7E5E4]">
                 <a href="{{ route('manager.dashboard', ['period' => 'today']) }}"
                    class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all {{ $period === 'today' ? 'bg-white text-[#D97706] shadow-sm' : 'text-[#78716C] hover:text-[#1E1B18]' }}">
-                    Hari Ini
+                    Today
                 </a>
                 <a href="{{ route('manager.dashboard', ['period' => 'yesterday']) }}"
                    class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all {{ $period === 'yesterday' ? 'bg-white text-[#D97706] shadow-sm' : 'text-[#78716C] hover:text-[#1E1B18]' }}">
-                    Kemarin
+                    Yesterday
                 </a>
                 <a href="{{ route('manager.dashboard', ['period' => '7days']) }}"
                    class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all {{ in_array($period, ['7days', 'week']) ? 'bg-white text-[#D97706] shadow-sm' : 'text-[#78716C] hover:text-[#1E1B18]' }}">
-                    7 Hari
+                    7 Days
                 </a>
                 <a href="{{ route('manager.dashboard', ['period' => 'month']) }}"
                    class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all {{ $period === 'month' ? 'bg-white text-[#D97706] shadow-sm' : 'text-[#78716C] hover:text-[#1E1B18]' }}">
-                    Bulan Ini
+                    This Month
                 </a>
                 <button type="button" @click="dateFilterModal = true"
                         class="px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1 transition-all {{ $period === 'custom' ? 'bg-white text-[#D97706] shadow-sm' : 'text-[#78716C] hover:text-[#1E1B18]' }}">
@@ -64,13 +64,13 @@
             <!-- Export Buttons Dropdown / Actions -->
             <div class="flex items-center gap-1.5">
                 <a href="{{ route('manager.export-sales', ['format' => 'csv', 'start_date' => $startDate, 'end_date' => $endDate]) }}"
-                   title="Ekspor data penjualan ke CSV"
+                   title="Export sales audit to CSV"
                    class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white border border-[#E7E5E4] text-xs font-bold text-[#1E1B18] hover:bg-[#FAF2ED] hover:text-[#D97706] shadow-xs transition-colors">
                     <span class="material-symbols-outlined text-[16px] text-[#16A34A]">table_view</span>
                     <span>CSV</span>
                 </a>
                 <a href="{{ route('manager.export-sales', ['format' => 'pdf', 'start_date' => $startDate, 'end_date' => $endDate]) }}"
-                   title="Unduh laporan audit resmi format PDF"
+                   title="Download official audit report in PDF"
                    class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#3B2314] text-white text-xs font-bold hover:bg-[#2A180E] shadow-xs transition-all">
                     <span class="material-symbols-outlined text-[16px] text-red-400">picture_as_pdf</span>
                     <span>Audit PDF</span>
@@ -84,9 +84,9 @@
     <div class="bg-amber-50 border border-amber-200 text-amber-900 px-4 py-2.5 rounded-xl text-xs flex items-center justify-between">
         <div class="flex items-center gap-2">
             <span class="material-symbols-outlined text-[18px] text-[#D97706]">filter_alt</span>
-            <span>Menampilkan data kustom: <strong>{{ $dateLabel }}</strong></span>
+            <span>Showing custom date range: <strong>{{ $dateLabel }}</strong></span>
         </div>
-        <a href="{{ route('manager.dashboard') }}" class="font-bold underline hover:text-[#B45309]">Reset ke Hari Ini</a>
+        <a href="{{ route('manager.dashboard') }}" class="font-bold underline hover:text-[#B45309]">Reset to Today</a>
     </div>
     @endif
 
@@ -97,7 +97,7 @@
             <div class="flex items-start justify-between">
                 <div>
                     <span class="text-xs font-bold uppercase tracking-wider text-[#78716C]">
-                        {{ $period === 'today' ? 'Revenue Hari Ini' : 'Total Omzet Kotor' }}
+                        {{ $period === 'today' ? "Today's Revenue" : 'Gross Revenue' }}
                     </span>
                     <div class="flex items-baseline gap-1 mt-2">
                         <span class="text-3xl font-extrabold font-heading text-[#3B2314] font-tabular">
@@ -117,7 +117,7 @@
                     <span class="font-tabular">{{ $revenueGrowthPct >= 0 ? '+' : '' }}{{ $revenueGrowthPct }}%</span>
                 </div>
                 <span class="text-[#78716C] font-tabular">
-                    vs. periode lalu (${{ number_format($prevRevenue, 2) }})
+                    vs. previous period (${{ number_format($prevRevenue, 2) }})
                 </span>
             </div>
         </div>
@@ -127,13 +127,13 @@
             <div class="flex items-start justify-between">
                 <div>
                     <span class="text-xs font-bold uppercase tracking-wider text-[#78716C]">
-                        Total Transaksi Terbayar
+                        Total Paid Transactions
                     </span>
                     <div class="flex items-baseline gap-2 mt-2">
                         <span class="text-3xl font-extrabold font-heading text-[#1E1B18] font-tabular">
                             {{ $totalOrdersCount }}
                         </span>
-                        <span class="text-xs font-medium text-[#78716C]">Tiket Kasir</span>
+                        <span class="text-xs font-medium text-[#78716C]">Register Tickets</span>
                     </div>
                 </div>
                 <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-200 shadow-inner">
@@ -171,8 +171,8 @@
                 </div>
             </div>
             <div class="mt-4 pt-3 border-t border-[#F4ECE7] flex items-center justify-between text-xs">
-                <span class="text-[#78716C]">Biaya Upah: <strong class="text-[#3B2314] font-tabular">${{ number_format($laborCost, 2) }}</strong></span>
-                <span class="text-[#D97706] font-semibold text-[11px]">Target: &lt; 20%</span>
+                <span class="text-[#78716C]">Labor Cost: <strong class="text-[#3B2314] font-tabular">${{ number_format($laborCost, 2) }}</strong></span>
+                <span class="text-[#D97706] font-semibold text-[11px]">Benchmark: &lt; 20%</span>
             </div>
         </div>
 
@@ -181,13 +181,13 @@
             <div class="flex items-start justify-between">
                 <div>
                     <span class="text-xs font-bold uppercase tracking-wider text-[#78716C]">
-                        Staf On-Duty Lantai
+                        On-Duty Floor Staff
                     </span>
                     <div class="flex items-baseline gap-2 mt-2">
                         <span class="text-3xl font-extrabold font-heading text-[#16A34A] font-tabular">
                             {{ $activeStaffCount }}
                         </span>
-                        <span class="text-xs font-medium text-[#78716C]">Barista Aktif</span>
+                        <span class="text-xs font-medium text-[#78716C]">Active Baristas</span>
                     </div>
                 </div>
                 <div class="w-11 h-11 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-200 shadow-inner">
@@ -215,11 +215,11 @@
                         <div class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-[#D97706] text-[22px]">schedule</span>
                             <h2 class="text-lg font-bold font-heading text-[#1E1B18]">
-                                Tren Penjualan per Jam (Hourly Sales Velocity)
+                                Hourly Sales Velocity Trends
                             </h2>
                         </div>
                         <p class="text-xs text-[#78716C] mt-0.5">
-                            Visualisasi volume omzet &amp; pesanan per jam untuk mendeteksi lonjakan jam sibuk kafe.
+                            Hourly revenue and order volume visualization to pinpoint coffee shop peak surge hours.
                         </p>
                     </div>
 
@@ -231,7 +231,7 @@
                         </div>
                         <div class="flex items-center gap-1.5">
                             <span class="w-3 h-3 rounded-full bg-amber-200"></span>
-                            <span class="font-medium text-[#78716C]">Jumlah Pesanan</span>
+                            <span class="font-medium text-[#78716C]">Order Count</span>
                         </div>
                     </div>
                 </div>
@@ -251,7 +251,7 @@
                                 </span>
                             </div>
                             <span class="text-xs text-[#78716C] mt-0.5 truncate">
-                                Omzet Lonjakan Pagi: <strong class="text-[#3B2314] font-tabular">${{ number_format($hourlyVelocity['morningSurge']['sales'], 2) }}</strong> ({{ $hourlyVelocity['morningSurge']['orders'] }} tiket)
+                                Morning Surge Revenue: <strong class="text-[#3B2314] font-tabular">${{ number_format($hourlyVelocity['morningSurge']['sales'], 2) }}</strong> ({{ $hourlyVelocity['morningSurge']['orders'] }} tickets)
                             </span>
                         </div>
                     </div>
@@ -269,7 +269,7 @@
                                 </span>
                             </div>
                             <span class="text-xs text-[#78716C] mt-0.5 truncate">
-                                Omzet Lonjakan Siang: <strong class="text-[#3B2314] font-tabular">${{ number_format($hourlyVelocity['afternoonSurge']['sales'], 2) }}</strong> ({{ $hourlyVelocity['afternoonSurge']['orders'] }} tiket)
+                                Afternoon Rush Revenue: <strong class="text-[#3B2314] font-tabular">${{ number_format($hourlyVelocity['afternoonSurge']['sales'], 2) }}</strong> ({{ $hourlyVelocity['afternoonSurge']['orders'] }} tickets)
                             </span>
                         </div>
                     </div>
@@ -284,10 +284,10 @@
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mt-4 pt-3 border-t border-[#F4ECE7] text-xs">
                     <div class="flex items-center gap-2 text-[#1E1B18]">
                         <span class="material-symbols-outlined text-[#D97706] text-[18px]">insights</span>
-                        <span>Jam puncak transaksi: <strong class="font-tabular">{{ $hourlyVelocity['peakHourLabel'] }}</strong> (Volume: ${{ number_format($hourlyVelocity['maxHourSales'], 2) }})</span>
+                        <span>Peak transaction hour: <strong class="font-tabular">{{ $hourlyVelocity['peakHourLabel'] }}</strong> (Volume: ${{ number_format($hourlyVelocity['maxHourSales'], 2) }})</span>
                     </div>
                     <span class="text-[#78716C] font-tabular">
-                        Rata-rata: ${{ number_format($hourlyVelocity['avgPerHour'], 2) }}/jam operasional
+                        Average: ${{ number_format($hourlyVelocity['avgPerHour'], 2) }}/operating hour
                     </span>
                 </div>
             </div>
@@ -298,10 +298,10 @@
                     <div class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#D97706] text-[20px]">inventory_2</span>
                         <h3 class="text-base font-bold font-heading text-[#1E1B18]">
-                            Bahan Baku Margin Tertinggi &amp; Laju Konsumsi
+                            High-Margin Ingredients &amp; Depletion Rate
                         </h3>
                     </div>
-                    <span class="text-xs text-[#78716C]">Formula Resep Terintegrasi</span>
+                    <span class="text-xs text-[#78716C]">Integrated Recipe Formula</span>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -316,7 +316,7 @@
                             <p class="text-xs text-[#78716C] mt-0.5">{{ $item['brew_type'] }}</p>
                         </div>
                         <div class="mt-4 pt-3 border-t border-[#E7E5E4]/60 flex items-center justify-between text-xs">
-                            <span class="text-[#78716C]">Laju Depresi:</span>
+                            <span class="text-[#78716C]">Depletion Rate:</span>
                             <span class="font-bold text-[#1E1B18] font-tabular">{{ $item['depletion_rate'] }}</span>
                         </div>
                     </div>
@@ -329,13 +329,13 @@
                 <div class="flex items-center justify-between mb-4">
                     <div>
                         <h3 class="text-base font-bold font-heading text-[#1E1B18]">
-                            Audit Trail Transaksi Kasir Terkini
+                            Recent POS Transaction Audit Trail
                         </h3>
-                        <p class="text-xs text-[#78716C]">10 transaksi penjualan terakhir yang tercatat di database.</p>
+                        <p class="text-xs text-[#78716C]">Latest 10 sales transactions recorded in the database.</p>
                     </div>
                     <div class="flex items-center gap-2">
                         <a href="{{ route('manager.export-sales', ['format' => 'csv']) }}" class="text-xs font-semibold text-[#D97706] hover:underline flex items-center gap-1">
-                            <span>Unduh Semua</span>
+                            <span>Export All</span>
                             <span class="material-symbols-outlined text-[14px]">download</span>
                         </a>
                     </div>
@@ -346,9 +346,9 @@
                         <thead class="bg-[#FAF2ED] text-[#78716C] uppercase font-semibold border-b border-[#E7E5E4]">
                             <tr>
                                 <th class="px-4 py-3">Order #</th>
-                                <th class="px-4 py-3">Waktu</th>
-                                <th class="px-4 py-3">Kasir</th>
-                                <th class="px-4 py-3">Metode</th>
+                                <th class="px-4 py-3">Timestamp</th>
+                                <th class="px-4 py-3">Cashier</th>
+                                <th class="px-4 py-3">Method</th>
                                 <th class="px-4 py-3 text-right">Grand Total</th>
                                 <th class="px-4 py-3 text-center">Status</th>
                             </tr>
@@ -363,7 +363,7 @@
                                     {{ $order->created_at ? $order->created_at->format('H:i:s d/m') : '-' }}
                                 </td>
                                 <td class="px-4 py-3 font-medium">
-                                    {{ $order->user ? $order->user->full_name : 'System Kasir' }}
+                                    {{ $order->user ? $order->user->full_name : 'POS System' }}
                                 </td>
                                 <td class="px-4 py-3">
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold {{ $order->payment_method === 'CASH' ? 'bg-[#DCFCE7] text-[#16A34A]' : 'bg-[#FFEDD5] text-[#D97706]' }}">
@@ -382,7 +382,7 @@
                             @empty
                             <tr>
                                 <td colspan="6" class="px-4 py-6 text-center text-[#78716C]">
-                                    Belum ada data transaksi yang tercatat.
+                                    No transaction records found.
                                 </td>
                             </tr>
                             @endforelse
@@ -401,10 +401,10 @@
                         <div class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-[#D97706] text-[20px]">groups</span>
                             <h3 class="text-base font-bold font-heading text-[#1E1B18]">
-                                Presensi Staf &amp; Audit Upah
+                                Staff Attendance &amp; Labor Audit
                             </h3>
                         </div>
-                        <p class="text-xs text-[#78716C] mt-0.5">Monitoring staf bertugas dan efisiensi jam kerja.</p>
+                        <p class="text-xs text-[#78716C] mt-0.5">Monitoring on-duty personnel and shift work-hour efficiency.</p>
                     </div>
                     <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#DCFCE7] text-[#16A34A]">
                         Live Shift
@@ -414,17 +414,17 @@
                 <!-- Labor Gauge & Summary -->
                 <div class="p-4 rounded-xl bg-[#FAF2ED] my-4 border border-[#E7E5E4]">
                     <div class="flex items-center justify-between text-xs mb-2">
-                        <span class="font-bold text-[#1E1B18]">Efisiensi Jam Kerja Shift</span>
-                        <span class="font-bold text-[#16A34A] font-tabular">Status: Terkendali</span>
+                        <span class="font-bold text-[#1E1B18]">Shift Work-Hour Efficiency</span>
+                        <span class="font-bold text-[#16A34A] font-tabular">Status: Controlled</span>
                     </div>
                     <div class="w-full bg-[#E7E5E4] h-2.5 rounded-full overflow-hidden flex">
-                        <div class="bg-[#16A34A] h-full rounded-l-full" style="width: 75%;" title="Jam Terjadwal"></div>
-                        <div class="bg-[#D97706] h-full" style="width: 15%;" title="Sisa Shift"></div>
-                        <div class="bg-[#DC2626] h-full rounded-r-full" style="width: 10%;" title="Resiko Lembur"></div>
+                        <div class="bg-[#16A34A] h-full rounded-l-full" style="width: 75%;" title="Scheduled Hours"></div>
+                        <div class="bg-[#D97706] h-full" style="width: 15%;" title="Remaining Shift"></div>
+                        <div class="bg-[#DC2626] h-full rounded-r-full" style="width: 10%;" title="Overtime Risk"></div>
                     </div>
                     <div class="flex items-center justify-between text-[11px] text-[#78716C] mt-2 font-tabular">
-                        <span>Aktif: <strong>{{ $activeStaffCount }} Staf</strong></span>
-                        <span>Biaya Upah: <strong class="text-[#3B2314]">${{ number_format($laborCost, 2) }}</strong></span>
+                        <span>Active: <strong>{{ $activeStaffCount }} Staff</strong></span>
+                        <span>Labor Cost: <strong class="text-[#3B2314]">${{ number_format($laborCost, 2) }}</strong></span>
                     </div>
                 </div>
 
@@ -442,7 +442,7 @@
                             <div>
                                 <h5 class="font-bold text-xs text-[#1E1B18]">{{ $att->user->full_name }}</h5>
                                 <p class="text-[11px] text-[#78716C]">
-                                    {{ $att->user->role }} &bull; Masuk: {{ $att->clock_in ? $att->clock_in->format('H:i') : '-' }} WIB
+                                    {{ $att->user->role }} &bull; In: {{ $att->clock_in ? $att->clock_in->format('H:i') : '-' }}
                                 </p>
                             </div>
                         </div>
@@ -451,13 +451,13 @@
                                 {{ $att->status }}
                             </span>
                             <p class="text-[11px] text-[#78716C] font-tabular mt-0.5">
-                                ${{ number_format((float)$att->user->hourly_rate, 2) }}/jam
+                                ${{ number_format((float)$att->user->hourly_rate, 2) }}/hr
                             </p>
                         </div>
                     </div>
                     @empty
                     <div class="p-4 rounded-xl bg-[#FAF2ED] text-center text-xs text-[#78716C]">
-                        Tidak ada staf yang sedang clock-in aktif saat ini.
+                        No active clocked-in staff at this time.
                     </div>
                     @endforelse
                 </div>
@@ -465,7 +465,7 @@
                 <!-- Quick Roster Link -->
                 <div class="mt-4 pt-3 border-t border-[#F4ECE7] text-center">
                     <a href="{{ route('hr.roster') }}" class="text-xs font-semibold text-[#D97706] hover:underline flex items-center justify-center gap-1">
-                        <span>Kelola Jadwal &amp; Roster HRD</span>
+                        <span>Manage HR Roster &amp; Shift Schedules</span>
                         <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
                     </a>
                 </div>
@@ -477,11 +477,11 @@
                     <div class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#DC2626] text-[20px]">warning</span>
                         <h3 class="text-base font-bold font-heading text-[#1E1B18]">
-                            Peringatan Stok Menipis
+                            Low Stock Inventory Alerts
                         </h3>
                     </div>
                     <span class="px-2 py-0.5 rounded-full text-xs font-bold {{ $lowStockIngredients->count() > 0 ? 'bg-[#FEE2E2] text-[#DC2626]' : 'bg-[#DCFCE7] text-[#16A34A]' }} font-tabular">
-                        {{ $lowStockIngredients->count() }} Item
+                        {{ $lowStockIngredients->count() }} Items
                     </span>
                 </div>
 
@@ -491,7 +491,7 @@
                         <div>
                             <h5 class="font-bold text-xs text-[#DC2626]">{{ $ing->item_name }}</h5>
                             <p class="text-[11px] text-[#78716C]">
-                                Sisa: <strong class="text-[#DC2626] font-tabular">{{ number_format($ing->current_stock, 1) }} {{ $ing->unit }}</strong> &bull; Min: {{ number_format($ing->minimum_threshold, 1) }} {{ $ing->unit }}
+                                Stock: <strong class="text-[#DC2626] font-tabular">{{ number_format($ing->current_stock, 1) }} {{ $ing->unit }}</strong> &bull; Min: {{ number_format($ing->minimum_threshold, 1) }} {{ $ing->unit }}
                             </p>
                         </div>
                         <a href="{{ route('inventory.index') }}" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-[#DC2626] text-white hover:bg-red-700 transition-colors shadow-xs">
@@ -501,14 +501,14 @@
                     @empty
                     <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
                         <span class="material-symbols-outlined text-[20px] text-emerald-600">check_circle</span>
-                        <span>Seluruh bahan baku berada dalam kondisi aman di atas batas minimum.</span>
+                        <span>All raw materials and ingredients are within safe operational thresholds.</span>
                     </div>
                     @endforelse
                 </div>
 
                 <div class="mt-4 pt-3 border-t border-[#F4ECE7] text-center">
                     <a href="{{ route('inventory.index') }}" class="text-xs font-semibold text-[#D97706] hover:underline flex items-center justify-center gap-1">
-                        <span>Buka Modul Persediaan &amp; Restock Approval</span>
+                        <span>Open Inventory &amp; Restock Approval Module</span>
                         <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
                     </a>
                 </div>
@@ -519,23 +519,23 @@
                 <div class="flex items-center gap-2 text-amber-300">
                     <span class="material-symbols-outlined text-[20px]">download</span>
                     <h3 class="font-bold font-heading text-sm uppercase tracking-wider">
-                        Pusat Unduhan Laporan Audit
+                        Audit Report Export Center
                     </h3>
                 </div>
                 <p class="text-xs text-white/80 mt-1">
-                    Unduh rekapitulasi audit transaksi kasir terverifikasi untuk rekonsiliasi kas dan pelaporan pajak.
+                    Download verified cashier sales audit data for revenue reconciliation and financial compliance.
                 </p>
 
                 <div class="grid grid-cols-2 gap-3 mt-4">
                     <a href="{{ route('manager.export-sales', ['format' => 'csv', 'start_date' => $startDate, 'end_date' => $endDate]) }}"
                        class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold transition-all">
                         <span class="material-symbols-outlined text-[16px] text-emerald-400">table_view</span>
-                        <span>Ekspor CSV</span>
+                        <span>Export CSV</span>
                     </a>
                     <a href="{{ route('manager.export-sales', ['format' => 'pdf', 'start_date' => $startDate, 'end_date' => $endDate]) }}"
                        class="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#D97706] hover:bg-[#B45309] text-white text-xs font-bold shadow-sm transition-all">
                         <span class="material-symbols-outlined text-[16px] text-white">picture_as_pdf</span>
-                        <span>Ekspor PDF</span>
+                        <span>Export PDF</span>
                     </a>
                 </div>
             </div>
@@ -553,7 +553,7 @@
             <div class="flex items-center justify-between pb-3 border-b border-[#E7E5E4]">
                 <h3 class="text-base font-bold font-heading text-[#1E1B18] flex items-center gap-2">
                     <span class="material-symbols-outlined text-[#D97706]">calendar_month</span>
-                    <span>Pilih Rentang Waktu Audit</span>
+                    <span>Select Audit Date Range</span>
                 </h3>
                 <button type="button" @click="dateFilterModal = false" class="text-[#78716C] hover:text-[#1E1B18]">
                     <span class="material-symbols-outlined">close</span>
@@ -564,13 +564,13 @@
                 <input type="hidden" name="period" value="custom">
 
                 <div>
-                    <label class="block text-xs font-bold text-[#1E1B18] mb-1">Tanggal Mulai</label>
+                    <label class="block text-xs font-bold text-[#1E1B18] mb-1">Start Date</label>
                     <input type="date" name="custom_start" value="{{ $startDate }}"
                            class="w-full px-3 py-2 border border-[#E7E5E4] rounded-xl text-xs focus:ring-2 focus:ring-[#D97706] focus:outline-none" required>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-[#1E1B18] mb-1">Tanggal Selesai</label>
+                    <label class="block text-xs font-bold text-[#1E1B18] mb-1">End Date</label>
                     <input type="date" name="custom_end" value="{{ $endDate }}"
                            class="w-full px-3 py-2 border border-[#E7E5E4] rounded-xl text-xs focus:ring-2 focus:ring-[#D97706] focus:outline-none" required>
                 </div>
@@ -578,11 +578,11 @@
                 <div class="flex items-center justify-end gap-2 pt-2">
                     <button type="button" @click="dateFilterModal = false"
                             class="px-4 py-2 rounded-xl border border-[#E7E5E4] text-xs font-semibold text-[#78716C] hover:bg-[#FAF2ED]">
-                        Batal
+                        Cancel
                     </button>
                     <button type="submit"
                             class="px-5 py-2 rounded-xl bg-[#D97706] hover:bg-[#B45309] text-white text-xs font-bold shadow-sm transition-all">
-                        Terapkan Filter
+                        Apply Filter
                     </button>
                 </div>
             </form>
@@ -615,7 +615,7 @@ document.addEventListener('DOMContentLoaded', function () {
             labels: hourlyLabels,
             datasets: [
                 {
-                    label: 'Omzet Penjualan ($)',
+                    label: 'Sales Revenue ($)',
                     data: salesData,
                     borderColor: '#D97706',
                     borderWidth: 3,
@@ -630,7 +630,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     yAxisID: 'ySales'
                 },
                 {
-                    label: 'Jumlah Transaksi',
+                    label: 'Order Count',
                     data: ordersData,
                     type: 'bar',
                     backgroundColor: 'rgba(255, 212, 189, 0.65)',
@@ -663,9 +663,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     callbacks: {
                         label: function (context) {
                             if (context.dataset.yAxisID === 'ySales') {
-                                return ' Omzet: $' + Number(context.raw).toFixed(2);
+                                return ' Revenue: $' + Number(context.raw).toFixed(2);
                             }
-                            return ' Pesanan: ' + context.raw + ' tiket';
+                            return ' Orders: ' + context.raw + ' tickets';
                         }
                     }
                 }

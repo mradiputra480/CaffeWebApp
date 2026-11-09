@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="h-full scroll-smooth bg-[#FDFBF7]">
+<html lang="en" class="h-full scroll-smooth bg-[#FDFBF7]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,19 +53,19 @@
                 <!-- Nav Links & Quick Demo CTAs -->
                 <div class="flex items-center gap-2 sm:gap-4">
                     <a href="#features" class="hidden md:inline-flex text-xs font-semibold text-[#FAF2ED]/80 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">
-                        Fitur Utama
+                        Core Features
                     </a>
                     <a href="#architecture" class="hidden md:inline-flex text-xs font-semibold text-[#FAF2ED]/80 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">
-                        Arsitektur
+                        Architecture
                     </a>
                     <a href="#roles" class="hidden sm:inline-flex text-xs font-semibold text-[#FAF2ED]/80 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">
-                        Demo Multi-Role
+                        Multi-Role Demo
                     </a>
 
                     @auth
                         <a href="{{ match(auth()->user()->role) { 'STAFF' => route('pos.index'), 'HRD' => route('hr.roster'), 'MANAGER' => route('manager.dashboard'), default => route('pos.index') } }}" 
                            class="bg-[#D97706] hover:bg-[#B45309] text-white text-xs sm:text-sm font-bold px-4 py-2 sm:py-2.5 rounded-xl shadow-md transition-all flex items-center gap-1.5">
-                            <span>Buka Portal Saya ({{ auth()->user()->role }})</span>
+                            <span>Open My Portal ({{ auth()->user()->role }})</span>
                             <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                         </a>
                     @else
@@ -75,7 +75,7 @@
                         </a>
                         <a href="#roles" 
                            class="bg-[#D97706] hover:bg-[#B45309] text-white text-xs sm:text-sm font-bold px-4 py-2 sm:py-2.5 rounded-xl shadow-md shadow-[#D97706]/30 transition-all flex items-center gap-1.5">
-                            <span>Coba Live Demo</span>
+                            <span>Try Live Demo</span>
                             <span class="material-symbols-outlined text-[16px]">rocket_launch</span>
                         </a>
                     @endauth
@@ -96,53 +96,53 @@
                 <!-- Badges Pill -->
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-semibold text-[#FAF2ED] mb-6 shadow-inner">
                     <span class="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse"></span>
-                    <span>Portfolio Production Showcase</span>
+                    <span>Enterprise Software Portfolio</span>
                     <span class="text-[#FAF2ED]/40">&bull;</span>
-                    <span class="text-[#D97706]">51/51 Tests Passed</span>
+                    <span class="text-[#D97706]">53/53 Tests Passed</span>
                 </div>
 
                 <!-- Main Hero Headline -->
                 <h1 class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight max-w-4xl mx-auto leading-tight sm:leading-none text-white">
-                    Harmoni Operasional Kafe Spesialis Modern.
+                    Seamless Operations for Modern Specialty Coffee.
                 </h1>
 
                 <p class="mt-6 text-base sm:text-xl text-[#FAF2ED]/85 max-w-3xl mx-auto leading-relaxed">
-                    Satu platform terintegrasi untuk <strong class="text-white">POS Kasir</strong> dengan pengurangan gramasi bahan baku atomik, <strong class="text-white">Presensi &amp; Payroll HR</strong>, pengawasan rantai pasok bahan mentah, dan <strong class="text-white">Analitik Eksekutif</strong>.
+                    A unified monolith web platform connecting high-speed <strong class="text-white">Web POS</strong> with atomic recipe ingredient deductions, <strong class="text-white">HR Shift Rosters &amp; Payroll</strong>, raw inventory ledger tracking, and <strong class="text-white">Executive Intelligence</strong>.
                 </p>
 
                 <!-- Call to Actions -->
                 <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
                     <a href="#roles" class="bg-[#D97706] hover:bg-[#B45309] text-white font-bold px-6 py-3.5 rounded-xl shadow-xl shadow-[#D97706]/30 text-sm sm:text-base flex items-center gap-2 transition-transform active:scale-[0.98]">
                         <span class="material-symbols-outlined text-[20px]">play_circle</span>
-                        <span>Akses 1-Click Live Demo</span>
+                        <span>1-Click Instant Live Demo</span>
                     </a>
                     <a href="{{ route('login') }}" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-5 py-3.5 rounded-xl text-sm sm:text-base transition-colors flex items-center gap-2">
                         <span class="material-symbols-outlined text-[20px]">lock</span>
-                        <span>Portal Login Manual</span>
+                        <span>Standard Sign-In Portal</span>
                     </a>
                 </div>
 
                 <!-- Key Metrics Strip -->
                 <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-white/10 text-left">
                     <div class="bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10">
-                        <p class="text-xs uppercase tracking-wider text-[#FAF2ED]/60 font-medium">Arsitektur</p>
+                        <p class="text-xs uppercase tracking-wider text-[#FAF2ED]/60 font-medium">Architecture</p>
                         <p class="text-lg sm:text-xl font-bold font-heading text-white mt-1">Multi-Role RBAC</p>
                         <p class="text-[11px] text-[#FAF2ED]/70 mt-0.5">Staff, HRD, &amp; Cafe Manager</p>
                     </div>
                     <div class="bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10">
-                        <p class="text-xs uppercase tracking-wider text-[#FAF2ED]/60 font-medium">Keandalan POS</p>
+                        <p class="text-xs uppercase tracking-wider text-[#FAF2ED]/60 font-medium">POS Reliability</p>
                         <p class="text-lg sm:text-xl font-bold font-heading text-[#D97706] mt-1">Atomic Recipes</p>
-                        <p class="text-[11px] text-[#FAF2ED]/70 mt-0.5">Deduplikasi gramasi otomatis</p>
+                        <p class="text-[11px] text-[#FAF2ED]/70 mt-0.5">Gram &amp; ml stock deductions</p>
                     </div>
                     <div class="bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10">
-                        <p class="text-xs uppercase tracking-wider text-[#FAF2ED]/60 font-medium">Pembayaran</p>
+                        <p class="text-xs uppercase tracking-wider text-[#FAF2ED]/60 font-medium">Checkout Flow</p>
                         <p class="text-lg sm:text-xl font-bold font-heading text-white mt-1">Cash &amp; QRIS</p>
-                        <p class="text-[11px] text-[#FAF2ED]/70 mt-0.5">Simulasi gateway dinamis</p>
+                        <p class="text-[11px] text-[#FAF2ED]/70 mt-0.5">Dynamic gateway simulation</p>
                     </div>
                     <div class="bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10">
-                        <p class="text-xs uppercase tracking-wider text-[#FAF2ED]/60 font-medium">Audit &amp; Ekspor</p>
+                        <p class="text-xs uppercase tracking-wider text-[#FAF2ED]/60 font-medium">Auditing &amp; Exports</p>
                         <p class="text-lg sm:text-xl font-bold font-heading text-emerald-400 mt-1">CSV &amp; PDF</p>
-                        <p class="text-[11px] text-[#FAF2ED]/70 mt-0.5">Audit finansial komprehensif</p>
+                        <p class="text-[11px] text-[#FAF2ED]/70 mt-0.5">Comprehensive audit reports</p>
                     </div>
                 </div>
             </div>
@@ -156,15 +156,15 @@
                         Interactive Live Preview
                     </span>
                     <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-[#1E1B18] tracking-tight">
-                        Pilih Peran &amp; Masuk Seketika (1-Click Login)
+                        Select a Role &amp; Enter Instantly (1-Click Demo)
                     </h2>
                     <p class="text-sm sm:text-base text-[#78716C] mt-2">
-                        Tanpa perlu mengetik sandi. Klik stasiun kerja yang ingin Anda evaluasi untuk langsung masuk ke dasbor aktif yang disimulasikan:
+                        No manual password entry required. Select a workstation persona to test full functionality:
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Staff / Kasir Card -->
+                    <!-- Staff / Cashier Card -->
                     <div class="bg-[#FDFBF7] border-2 border-[#E7E5E4] hover:border-[#D97706] rounded-2xl p-6 transition-all duration-300 hover:shadow-xl flex flex-col justify-between group">
                         <div>
                             <div class="flex items-center justify-between mb-4">
@@ -176,22 +176,22 @@
                                 </span>
                             </div>
                             <h3 class="font-heading font-bold text-lg text-[#1E1B18] group-hover:text-[#D97706] transition-colors">
-                                Alex Rivera (Kasir Senior)
+                                Alex Rivera (Lead Cashier)
                             </h3>
                             <p class="text-xs text-[#78716C] mt-1 font-mono">cashier@cafesync.local</p>
                             
                             <ul class="mt-4 space-y-2 text-xs text-[#1E1B18]/80">
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#16A34A] font-bold">✓</span>
-                                    <span>Web POS Terminal &amp; Katalog Menu Spesialis</span>
+                                    <span>Web POS Order Terminal &amp; Catalog</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#16A34A] font-bold">✓</span>
-                                    <span>Pengecekan Stok Resep &amp; Simulasi QRIS</span>
+                                    <span>Recipe Ingredient Verification &amp; QRIS</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#16A34A] font-bold">✓</span>
-                                    <span>Cetak Struk Thermal 80mm &amp; Presensi Mandiri</span>
+                                    <span>80mm Thermal Receipt Printing &amp; Shift Clock-In</span>
                                 </li>
                             </ul>
                         </div>
@@ -199,7 +199,7 @@
                         <div class="mt-6 pt-4 border-t border-[#E7E5E4]">
                             <a href="{{ route('demo.login', 'staff') }}" 
                                class="w-full bg-[#3B2314] hover:bg-[#D97706] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-xl shadow transition-all flex items-center justify-center gap-2">
-                                <span>Masuk Terminal Kasir</span>
+                                <span>Launch Cashier Terminal</span>
                                 <span class="material-symbols-outlined text-[16px]">login</span>
                             </a>
                         </div>
@@ -224,15 +224,15 @@
                             <ul class="mt-4 space-y-2 text-xs text-[#1E1B18]/80">
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#16A34A] font-bold">✓</span>
-                                    <span>Roster Shift Karyawan &amp; Kalender Bulanan</span>
+                                    <span>Staff Shift Roster &amp; Monthly Calendar</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#16A34A] font-bold">✓</span>
-                                    <span>Deteksi Keterlambatan (>15m) &amp; Peringatan HR</span>
+                                    <span>Automated Tardiness Alerts (>15m Late)</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#16A34A] font-bold">✓</span>
-                                    <span>Kalkulasi Otomatis Payroll &amp; Jam Lembur</span>
+                                    <span>Automated Monthly Payroll &amp; Overtime Calc</span>
                                 </li>
                             </ul>
                         </div>
@@ -240,7 +240,7 @@
                         <div class="mt-6 pt-4 border-t border-[#E7E5E4]">
                             <a href="{{ route('demo.login', 'hrd') }}" 
                                class="w-full bg-emerald-800 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-xl shadow transition-all flex items-center justify-center gap-2">
-                                <span>Masuk Portal HR &amp; Shift</span>
+                                <span>Launch HR &amp; Roster Portal</span>
                                 <span class="material-symbols-outlined text-[16px]">login</span>
                             </a>
                         </div>
@@ -265,15 +265,15 @@
                             <ul class="mt-4 space-y-2 text-xs text-[#1E1B18]/80">
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#16A34A] font-bold">✓</span>
-                                    <span>Dasbor Eksekutif &amp; Analisis Jam Sibuk (Velocity)</span>
+                                    <span>Executive Analytics &amp; Hourly Rush Velocity</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#16A34A] font-bold">✓</span>
-                                    <span>Persetujuan Restock Bahan Baku (PO Approval Deck)</span>
+                                    <span>Restock Requisitions (1-Click Bulk PO Approval)</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="text-[#16A34A] font-bold">✓</span>
-                                    <span>Ekspor Audit Penjualan ke Format CSV &amp; PDF</span>
+                                    <span>Sales Audit Ledger Exports (CSV &amp; PDF)</span>
                                 </li>
                             </ul>
                         </div>
@@ -281,7 +281,7 @@
                         <div class="mt-6 pt-4 border-t border-[#E7E5E4]">
                             <a href="{{ route('demo.login', 'manager') }}" 
                                class="w-full bg-[#D97706] hover:bg-[#B45309] text-white text-xs sm:text-sm font-bold py-2.5 px-4 rounded-xl shadow transition-all flex items-center justify-center gap-2">
-                                <span>Masuk Dasbor Eksekutif</span>
+                                <span>Launch Executive Dashboard</span>
                                 <span class="material-symbols-outlined text-[16px]">login</span>
                             </a>
                         </div>
@@ -290,8 +290,8 @@
 
                 <div class="mt-8 text-center">
                     <p class="text-xs text-[#78716C]">
-                        Ingin menguji proteksi keamanan Brute-Force lockout? 
-                        <a href="{{ route('login') }}" class="text-[#D97706] font-semibold hover:underline">Buka halaman Login biasa &rarr;</a>
+                        Want to test the Brute-Force lockout defense mechanism? 
+                        <a href="{{ route('login') }}" class="text-[#D97706] font-semibold hover:underline">Go to Standard Sign-In Screen &rarr;</a>
                     </p>
                 </div>
             </div>
@@ -305,10 +305,10 @@
                         Enterprise Workflows
                     </span>
                     <h2 class="font-heading font-extrabold text-2xl sm:text-4xl text-[#1E1B18] tracking-tight">
-                        Fitur Utama yang Membedakan CafeSync
+                        Designed for Real Specialty Coffee Operations
                     </h2>
                     <p class="text-sm sm:text-base text-[#78716C] mt-2">
-                        Dibangun berdasarkan spesifikasi nyata operasional kafe spesialis dengan keandalan transaksi tinggi:
+                        Engineered with strict transaction safety, robust data integrity, and high-frequency usability:
                     </p>
                 </div>
 
@@ -318,9 +318,9 @@
                         <div class="w-10 h-10 rounded-xl bg-[#FAF2ED] text-[#D97706] flex items-center justify-center font-bold mb-4">
                             <span class="material-symbols-outlined">point_of_sale</span>
                         </div>
-                        <h4 class="font-heading font-bold text-base text-[#1E1B18]">POS &amp; Resep Atomik</h4>
+                        <h4 class="font-heading font-bold text-base text-[#1E1B18]">POS &amp; Atomic Recipes</h4>
                         <p class="text-xs text-[#78716C] mt-2 leading-relaxed">
-                            Setiap menu (misal Espresso Supreme, Iced Matcha Latte) terhubung ke resep bahan baku gram/ml. Stok dipotong secara otomatis dalam transaksi ACID saat checkout berhasil.
+                            Every catalog item maps to precise recipe ingredients in grams or milliliters. Stock levels deduct atomically during checkout with complete rollback safety.
                         </p>
                     </div>
 
@@ -329,9 +329,9 @@
                         <div class="w-10 h-10 rounded-xl bg-[#FAF2ED] text-[#D97706] flex items-center justify-center font-bold mb-4">
                             <span class="material-symbols-outlined">inventory_2</span>
                         </div>
-                        <h4 class="font-heading font-bold text-base text-[#1E1B18]">Manajemen Stok &amp; PO</h4>
+                        <h4 class="font-heading font-bold text-base text-[#1E1B18]">Inventory &amp; PO Engine</h4>
                         <p class="text-xs text-[#78716C] mt-2 leading-relaxed">
-                            Ambang batas minimum stok (minimum threshold) memicu peringatan otomatis. Kasir/staf dapat mengajukan permintaan restock, dan manajer menyetujui secara tunggal atau massal.
+                            Configurable thresholds trigger automated low-stock warnings. Baristas initiate restock requests, while managers review, reject, or bulk-approve purchase orders.
                         </p>
                     </div>
 
@@ -340,9 +340,9 @@
                         <div class="w-10 h-10 rounded-xl bg-[#FAF2ED] text-[#D97706] flex items-center justify-center font-bold mb-4">
                             <span class="material-symbols-outlined">badge</span>
                         </div>
-                        <h4 class="font-heading font-bold text-base text-[#1E1B18]">Presensi, Shift &amp; Gaji</h4>
+                        <h4 class="font-heading font-bold text-base text-[#1E1B18]">HR Roster &amp; Payroll</h4>
                         <p class="text-xs text-[#78716C] mt-2 leading-relaxed">
-                            Clock-in presensi mendeteksi keterlambatan >15 menit dan memicu alert ke HR. Shift tidak terjadwal memerlukan PIN override dari manajer. Lembur dihitung otomatis berdasarkan tarif per jam.
+                            Clock-in logs automatically detect tardiness (>15m) and alert HR. Unscheduled shifts require manager PIN override. Overtime wage totals aggregate in real-time.
                         </p>
                     </div>
 
@@ -351,9 +351,9 @@
                         <div class="w-10 h-10 rounded-xl bg-[#FAF2ED] text-[#D97706] flex items-center justify-center font-bold mb-4">
                             <span class="material-symbols-outlined">monitoring</span>
                         </div>
-                        <h4 class="font-heading font-bold text-base text-[#1E1B18]">Intelijen &amp; Audit Penjualan</h4>
+                        <h4 class="font-heading font-bold text-base text-[#1E1B18]">Intelligence &amp; Auditing</h4>
                         <p class="text-xs text-[#78716C] mt-2 leading-relaxed">
-                            Analisis kecepatan penjualan per jam (Morning Surge &amp; Afternoon Surge), rasio biaya tenaga kerja terhadap pendapatan, dan ekspor instan laporan audit penjualan ke CSV &amp; PDF resmi.
+                            Hourly sales velocity highlights morning and afternoon rushes. Audits labor cost ratios against revenue, providing 1-click exports to CSV and styled landscape PDF reports.
                         </p>
                     </div>
                 </div>
@@ -369,10 +369,10 @@
                             Engineering Standards
                         </span>
                         <h2 class="font-heading font-extrabold text-2xl sm:text-4xl tracking-tight text-white">
-                            Fondasi Teknologi &amp; Kualitas Kode
+                            Modern Architecture &amp; Code Quality
                         </h2>
                         <p class="text-sm sm:text-base text-[#FAF2ED]/80 mt-3 leading-relaxed">
-                            Proyek ini dibangun mengikuti konvensi clean code standar industri Laravel, arsitektur Service Layer, dan pengujian otomatis komprehensif.
+                            Built following strict Laravel industry conventions, Service Layer separation of concerns, and automated integration testing.
                         </p>
                     </div>
 
@@ -399,17 +399,17 @@
                         </div>
                         <div class="bg-white/10 backdrop-blur-sm p-3.5 rounded-xl border border-white/10 text-center">
                             <p class="text-xs text-[#FAF2ED]/70 font-semibold">Test Suite</p>
-                            <p class="font-heading font-bold text-sm sm:text-base text-emerald-400 mt-1">51 Feature Tests</p>
+                            <p class="font-heading font-bold text-sm sm:text-base text-emerald-400 mt-1">53 Feature Tests</p>
                         </div>
                     </div>
 
                     <div class="mt-8 flex flex-wrap items-center gap-4 pt-6 border-t border-white/15">
                         <a href="{{ route('demo.login', 'manager') }}" class="bg-[#D97706] hover:bg-[#B45309] text-white font-bold px-5 py-2.5 rounded-xl text-xs sm:text-sm shadow transition-all flex items-center gap-1.5">
-                            <span>Buka Live Demo Sekarang</span>
+                            <span>Open Live Demo Now</span>
                             <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                         </a>
                         <a href="{{ route('login') }}" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-4 py-2.5 rounded-xl text-xs sm:text-sm border border-white/20 transition-colors">
-                            Halaman Login Multi-Role
+                            Standard Sign-In Screen
                         </a>
                     </div>
                 </div>
@@ -425,7 +425,7 @@
                 <span class="font-heading font-bold text-white text-sm">CafeSync Platform</span>
                 <span>&bull; Artisanal Specialty Cafe Operations &amp; POS</span>
             </div>
-            <p>&copy; {{ date('Y') }} SI CafeSync. Portofolio Sistem Informasi Enterprise.</p>
+            <p>&copy; {{ date('Y') }} CafeSync. Enterprise Information System Portfolio.</p>
         </div>
     </footer>
 </body>

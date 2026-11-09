@@ -28,12 +28,12 @@
         <div>
             <div class="flex items-center gap-2">
                 <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-[#16A34A] border border-emerald-200">
-                    HR & Employee Portal
+                    HR &amp; Employee Portal
                 </span>
-                <span class="text-xs text-[#78716C]">Sistem Presensi, Shift & Payroll</span>
+                <span class="text-xs text-[#78716C]">Shift Attendance, Rostering &amp; Payroll</span>
             </div>
-            <h1 class="text-2xl font-bold font-heading text-[#1E1B18] mt-1">Daftar Karyawan dan Roster Kehadiran</h1>
-            <p class="text-xs sm:text-sm text-[#78716C]">Pengawasan shift kerja, deteksi keterlambatan, dan estimasi total upah bulanan.</p>
+            <h1 class="text-2xl font-bold font-heading text-[#1E1B18] mt-1">Staff Roster &amp; Attendance Management</h1>
+            <p class="text-xs sm:text-sm text-[#78716C]">Work shift monitoring, automated tardiness alerts, and monthly payroll calculation.</p>
         </div>
 
         <div class="flex flex-wrap items-center gap-3">

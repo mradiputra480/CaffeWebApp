@@ -57,16 +57,16 @@
                     <nav class="hidden md:flex items-center gap-1 ml-6 border-l border-[#FAF2ED]/20 pl-6 text-sm font-medium">
                         @if(auth()->user()->isStaff() || auth()->user()->isManager())
                         <a href="{{ route('pos.index') }}" class="px-3 py-1.5 rounded-lg transition-colors {{ request()->routeIs('pos.*') ? 'bg-[#D97706] text-white shadow-sm' : 'text-[#FAF2ED]/80 hover:bg-[#FAF2ED]/10 hover:text-white' }}">
-                            ☕ POS Kasir
+                            ☕ POS Terminal
                         </a>
                         <a href="{{ route('inventory.index') }}" class="px-3 py-1.5 rounded-lg transition-colors {{ request()->routeIs('inventory.*') ? 'bg-[#D97706] text-white shadow-sm' : 'text-[#FAF2ED]/80 hover:bg-[#FAF2ED]/10 hover:text-white' }}">
-                            📦 Stok Bahan Mentah
+                            📦 Raw Inventory
                         </a>
                         @endif
 
                         @if(auth()->user()->isHrd() || auth()->user()->isManager())
                         <a href="{{ route('hr.roster') }}" class="px-3 py-1.5 rounded-lg transition-colors {{ request()->routeIs('hr.*') ? 'bg-[#D97706] text-white shadow-sm' : 'text-[#FAF2ED]/80 hover:bg-[#FAF2ED]/10 hover:text-white' }}">
-                            📋 Roster & Presensi HR
+                            📋 HR &amp; Roster
                         </a>
                         @endif
 

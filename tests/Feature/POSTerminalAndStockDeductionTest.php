@@ -143,7 +143,7 @@ class POSTerminalAndStockDeductionTest extends TestCase
         // STAFF can access POS
         $responseStaff = $this->actingAs($this->staff)->get(route('pos.index'));
         $responseStaff->assertStatus(200);
-        $responseStaff->assertSee('Terminal POS Kasir #01');
+        $responseStaff->assertSee('POS Cashier Terminal #01');
         $responseStaff->assertSee('Espresso Supreme');
         $responseStaff->assertSee('Classic Flat White');
 
@@ -434,12 +434,12 @@ class POSTerminalAndStockDeductionTest extends TestCase
         $response->assertSee('CafeSync');
         $response->assertSee('Espresso Supreme');
         $response->assertSee('Subtotal');
-        $response->assertSee('Pajak (10%)');
+        $response->assertSee('Tax (10%)');
         $response->assertSee('GRAND TOTAL');
         $response->assertSee('$7.70');
-        $response->assertSee('Tunai Diterima');
+        $response->assertSee('Cash Tendered');
         $response->assertSee('$10.00');
-        $response->assertSee('Kembalian');
+        $response->assertSee('Change Due');
         $response->assertSee('$2.30');
     }
 }

@@ -46,7 +46,7 @@ window.posConfig = {
             <div>
                 <div class="flex flex-wrap items-center gap-2">
                     <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#FAF2ED] text-[#D97706] border border-[#D97706]/30">
-                        Terminal POS Kasir #01
+                        POS Cashier Terminal #01
                     </span>
                     <span class="text-xs text-[#78716C] font-mono font-tabular">Rate: ${{ number_format($user->hourly_rate, 2) }}/jam</span>
                     @if($todaySchedule)

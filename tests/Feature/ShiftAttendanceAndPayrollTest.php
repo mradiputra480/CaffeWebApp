@@ -237,7 +237,7 @@ class ShiftAttendanceAndPayrollTest extends TestCase
         $response = $this->actingAs($this->hrd)->get('/hr/roster');
 
         $response->assertStatus(200);
-        $response->assertSee('Daftar Karyawan dan Roster Kehadiran');
+        $response->assertSee('Staff Roster &amp; Attendance Management', false);
         $response->assertSee('Alex Cashier');
         $response->assertSee('$15.00'); // hourly rate
         $response->assertSee('18.00'); // total hours

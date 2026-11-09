@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="id" class="h-full bg-[#FDFBF7]">
+<html lang="en" class="h-full bg-[#FDFBF7]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Masuk ke Portal CafeSync - Artisanal Specialty Cafe Operations</title>
+    <title>Sign In to CafeSync Portal - Specialty Cafe Operations</title>
 
     <!-- Google Fonts: Plus Jakarta Sans & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,13 +71,13 @@
                 <div class="mt-8 space-y-3">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-xs font-medium text-[#FAF2ED]">
                         <span class="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse"></span>
-                        <span>Engine v0.3.0 &bull; Multi-Role Guard</span>
+                        <span>Engine v1.0 &bull; Multi-Role Guard</span>
                     </div>
                     <h2 class="font-heading text-2xl sm:text-3xl font-bold leading-tight text-white">
-                        Harmoni Operasional Kafe Spesialis Modern.
+                        Seamless Operations for Modern Specialty Coffee.
                     </h2>
                     <p class="text-sm text-[#FAF2ED]/80 leading-relaxed">
-                        Satu platform terintegrasi untuk POS Kasir berkecepatan tinggi, presensi & lembur staf, monitoring bahan baku mentah, dan analitik eksekutif.
+                        A unified platform for high-speed POS orders, staff attendance & overtime, raw inventory tracking, and executive analytics.
                     </p>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     </div>
                     <div>
                         <p class="text-xs font-semibold text-white">Automated Inventory Deduction</p>
-                        <p class="text-[11px] text-[#FAF2ED]/60">Deduplikasi gramasi bahan baku otomatis tiap penjualan</p>
+                        <p class="text-[11px] text-[#FAF2ED]/60">Atomic recipe-level gram &amp; ml stock deductions</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
@@ -103,7 +103,7 @@
                     </div>
                     <div>
                         <p class="text-xs font-semibold text-white">Brute-Force Lockout Defense</p>
-                        <p class="text-[11px] text-[#FAF2ED]/60">Kunci otomatis 15 menit jika 3x salah sandi berturut-turut</p>
+                        <p class="text-[11px] text-[#FAF2ED]/60">Automatic 15m lockout after 3 consecutive failed logins</p>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                     "Crafting perfection in every cup, syncing excellence in every shift."
                 </blockquote>
                 <p class="mt-3 text-[11px] text-[#FAF2ED]/50 font-medium">
-                    &copy; {{ date('Y') }} CafeSync Platform &bull; Laragon Enterprise
+                    &copy; {{ date('Y') }} CafeSync Platform &bull; Enterprise Monolith
                 </p>
             </div>
         </div>
@@ -125,10 +125,10 @@
                 <!-- Title & Subtitle -->
                 <div class="mb-6">
                     <h3 class="font-heading text-2xl sm:text-3xl font-bold text-[#1E1B18] tracking-tight">
-                        Portal Masuk Staf
+                        Staff Portal Sign-In
                     </h3>
                     <p class="text-sm text-[#78716C] mt-1.5">
-                        Pilih peran stasiun kerja Anda dan masukkan kredensial akun terdaftar.
+                        Select your workstation role and enter your registered credentials.
                     </p>
                 </div>
 
@@ -149,7 +149,7 @@
                             <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
                             </svg>
-                            <span>Perhatian Masuk:</span>
+                            <span>Authentication Warning:</span>
                         </div>
                         <ul class="list-disc list-inside pl-1 text-[13px] leading-relaxed">
                             @foreach ($errors->all() as $error)
@@ -162,7 +162,7 @@
                 <!-- Role Pill Switcher (Stitch Component & Alpine.js) -->
                 <div class="mb-6">
                     <label class="block text-xs font-semibold uppercase tracking-wider text-[#78716C] mb-2">
-                        Pilih Stasiun Peran (Role Switcher)
+                        Select Workstation Role
                     </label>
                     <div class="bg-[#F4ECE7] p-1.5 rounded-xl flex gap-1 border border-[#E7E5E4]">
                         <!-- Staff Pill -->
@@ -173,7 +173,7 @@
                             class="flex-1 py-2 px-2.5 rounded-lg text-xs sm:text-sm text-center transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                         >
                             <span>☕</span>
-                            <span>Staff / Kasir</span>
+                            <span>Staff / Cashier</span>
                         </button>
 
                         <!-- HRD Pill -->
@@ -184,7 +184,7 @@
                             class="flex-1 py-2 px-2.5 rounded-lg text-xs sm:text-sm text-center transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                         >
                             <span>📋</span>
-                            <span>HR & Shift</span>
+                            <span>HR &amp; Shift</span>
                         </button>
 
                         <!-- Manager Pill -->
@@ -210,7 +210,7 @@
                     <!-- Email Input Field -->
                     <div>
                         <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-[#78716C] mb-1.5">
-                            Alamat Email Staf
+                            Work Email Address
                         </label>
                         <div class="relative rounded-lg shadow-sm">
                             <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#78716C]">
@@ -225,7 +225,7 @@
                                 x-model="email"
                                 required 
                                 autocomplete="email"
-                                placeholder="nama@cafesync.local"
+                                placeholder="name@cafesync.local"
                                 class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-[#E7E5E4] focus:outline-none focus:ring-2 focus:ring-[#D97706] focus:border-transparent text-sm text-[#1E1B18] transition-all bg-white placeholder-[#78716C]/50"
                             >
                         </div>
@@ -235,7 +235,7 @@
                     <div>
                         <div class="flex items-center justify-between mb-1.5">
                             <label for="password" class="block text-xs font-semibold uppercase tracking-wider text-[#78716C]">
-                                Kata Sandi
+                                Password
                             </label>
                             <span class="text-[11px] text-[#78716C]">Bcrypt Secured</span>
                         </div>
@@ -259,7 +259,7 @@
                                 type="button" 
                                 @click="showPassword = !showPassword"
                                 class="absolute inset-y-0 right-0 pr-3 flex items-center text-[#78716C] hover:text-[#1E1B18] cursor-pointer"
-                                title="Lihat/Sembunyikan Kata Sandi"
+                                title="Toggle password visibility"
                             >
                                 <svg x-show="!showPassword" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -280,10 +280,10 @@
                                 name="remember" 
                                 class="rounded border-[#E7E5E4] text-[#D97706] focus:ring-[#D97706] w-4 h-4"
                             >
-                            <span>Ingat sesi masuk saya (8 Jam)</span>
+                            <span>Remember session (8 Hours)</span>
                         </label>
-                        <span class="text-[#D97706] hover:underline cursor-pointer" title="Hubungi manajer kafe jika lupa password">
-                            Bantuan Akun?
+                        <span class="text-[#D97706] hover:underline cursor-pointer" title="Contact General Manager for credential resets">
+                            Need Help?
                         </span>
                     </div>
 
@@ -293,7 +293,7 @@
                             type="submit" 
                             class="w-full bg-[#D97706] hover:bg-[#B45309] text-white font-semibold py-3 px-4 rounded-xl shadow-md hover:shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2 text-sm tracking-wide cursor-pointer"
                         >
-                            <span>Masuk ke Terminal CafeSync</span>
+                            <span>Sign In to CafeSync Terminal</span>
                             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                             </svg>
@@ -305,7 +305,7 @@
                 <div class="mt-6 pt-5 border-t border-[#E7E5E4]">
                     <p class="text-[11px] font-semibold text-[#78716C] uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
                         <span class="w-1.5 h-1.5 rounded-full bg-[#D97706]"></span>
-                        <span>Akun Uji Coba Cepat (Password: <code>password123</code>):</span>
+                        <span>Quick Demo Accounts (Password: <code>password123</code>):</span>
                     </p>
                     <div class="grid grid-cols-3 gap-2">
                         <button 
@@ -343,7 +343,7 @@
                         <svg class="w-3.5 h-3.5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                         </svg>
-                        <span>Proteksi Keamanan: Akun terkunci otomatis 15m jika 3x gagal login berturut-turut.</span>
+                        <span>Security Defense: Automatic 15-minute lockout after 3 consecutive failed logins.</span>
                     </p>
                 </div>
             </div>

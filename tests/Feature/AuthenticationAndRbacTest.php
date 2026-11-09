@@ -29,9 +29,9 @@ class AuthenticationAndRbacTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('CafeSync');
-        $response->assertSee('Portal Masuk Staf');
-        $response->assertSee('Staff / Kasir');
-        $response->assertSee('HR & Shift', false);
+        $response->assertSee('Staff Portal Sign-In');
+        $response->assertSee('Staff / Cashier');
+        $response->assertSee('HR &amp; Shift', false);
         $response->assertSee('Manager');
     }
 
@@ -59,7 +59,7 @@ class AuthenticationAndRbacTest extends TestCase
         // Access POS terminal
         $posResponse = $this->get('/pos');
         $posResponse->assertStatus(200);
-        $posResponse->assertSee('Terminal POS Kasir');
+        $posResponse->assertSee('POS Cashier Terminal');
 
         $staff->delete();
     }
@@ -88,7 +88,7 @@ class AuthenticationAndRbacTest extends TestCase
         // Access HR roster
         $rosterResponse = $this->get('/hr/roster');
         $rosterResponse->assertStatus(200);
-        $rosterResponse->assertSee('Daftar Karyawan dan Roster Kehadiran');
+        $rosterResponse->assertSee('Staff Roster &amp; Attendance Management', false);
 
         $hrd->delete();
     }
@@ -117,7 +117,7 @@ class AuthenticationAndRbacTest extends TestCase
         // Access Manager dashboard
         $dashResponse = $this->get('/manager/dashboard');
         $dashResponse->assertStatus(200);
-        $dashResponse->assertSee('Dasbor Eksekutif dan Intelijen Operasional');
+        $dashResponse->assertSee('Executive Analytics &amp; Operational Intelligence', false);
 
         $manager->delete();
     }

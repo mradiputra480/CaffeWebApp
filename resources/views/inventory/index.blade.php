@@ -21,10 +21,10 @@
                     </span>
                 </div>
                 <h1 class="text-2xl sm:text-3xl font-heading font-bold text-[#1E1B18] tracking-tight">
-                    Pengawasan Stok Bahan Baku Mentah
+                    Raw Ingredient Inventory Ledger
                 </h1>
                 <p class="text-sm text-[#78716C] mt-0.5">
-                    Monitor bobot/volume biji kopi, susu, kemasan, dan sirup secara terpusat (Raw Materials & Restock Lifecycle).
+                    Centralized metric tracking for coffee beans, dairy, packaging, and syrups (Supply Chain &amp; Restock Lifecycle).
                 </p>
             </div>
 
@@ -243,13 +243,13 @@
                     <table class="w-full text-left border-collapse" id="inventoryTable">
                         <thead>
                             <tr class="bg-[#F5F5F4]/70 border-b border-[#E7E5E4] text-[11px] uppercase tracking-wider text-[#78716C] font-semibold">
-                                <th class="py-3 px-4">Bahan Baku & SKU</th>
-                                <th class="py-3 px-3">Kategori</th>
-                                <th class="py-3 px-4 min-w-[200px]">Stok Terkini vs Kapasitas</th>
-                                <th class="py-3 px-3">Satuan</th>
-                                <th class="py-3 px-3">Ambang Batas</th>
+                                <th class="py-3 px-4">Raw Ingredient &amp; SKU</th>
+                                <th class="py-3 px-3">Category</th>
+                                <th class="py-3 px-4 min-w-[200px]">Current Stock vs Capacity</th>
+                                <th class="py-3 px-3">Unit</th>
+                                <th class="py-3 px-3">Threshold</th>
                                 <th class="py-3 px-3 text-center">Status</th>
-                                <th class="py-3 px-4 text-right">Aksi</th>
+                                <th class="py-3 px-4 text-right">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-[#E7E5E4] text-xs">

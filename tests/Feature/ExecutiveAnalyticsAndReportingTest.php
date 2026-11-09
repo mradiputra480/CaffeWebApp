@@ -93,12 +93,12 @@ class ExecutiveAnalyticsAndReportingTest extends TestCase
         $response = $this->actingAs($this->manager)->get('/manager/dashboard');
 
         $response->assertStatus(200);
-        $response->assertSee('Dasbor Eksekutif &amp; Intelijen Penjualan', false);
+        $response->assertSee('Executive Dashboard &amp; Sales Intelligence', false);
         $response->assertSee('Executive Intelligence');
-        $response->assertSee('Revenue Hari Ini');
-        $response->assertSee('Total Transaksi Terbayar');
+        $response->assertSee("Today's Revenue");
+        $response->assertSee('Total Paid Transactions');
         $response->assertSee('Labor Cost Ratio (LCR)');
-        $response->assertSee('Tren Penjualan per Jam (Hourly Sales Velocity)');
+        $response->assertSee('Hourly Sales Velocity Trends');
     }
 
     /**
@@ -184,7 +184,7 @@ class ExecutiveAnalyticsAndReportingTest extends TestCase
         $response->assertSee('$40.50');
         // Total orders should be 2
         $response->assertSee('2');
-        $response->assertSee('Tiket Kasir');
+        $response->assertSee('Register Tickets');
     }
 
     /**
@@ -277,7 +277,7 @@ class ExecutiveAnalyticsAndReportingTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('$120.00');
-        $response->assertSee('Menampilkan data kustom:');
+        $response->assertSee('Showing custom date range:');
     }
 
     /**

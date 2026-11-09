@@ -126,12 +126,12 @@ class RawInventoryAndRestockApprovalTest extends TestCase
         $response->assertSee('Out of Stock');
 
         // Table Columns Check
-        $response->assertSee('Bahan Baku');
+        $response->assertSee('Raw Ingredient');
         $response->assertSee('SKU');
-        $response->assertSee('Kategori');
-        $response->assertSee('Stok Terkini vs Kapasitas');
-        $response->assertSee('Satuan');
-        $response->assertSee('Ambang Batas');
+        $response->assertSee('Category');
+        $response->assertSee('Current Stock vs Capacity');
+        $response->assertSee('Unit');
+        $response->assertSee('Threshold');
         $response->assertSee('Status');
 
         // Items and Badges Check
