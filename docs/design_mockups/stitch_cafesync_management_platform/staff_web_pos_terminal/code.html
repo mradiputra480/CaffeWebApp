@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container": "#f4ece7", "secondary-container": "#ffd4bd", "surface-container-low": "#faf2ed", "on-secondary-fixed": "#2c1608", "on-tertiary-fixed-variant": "#005320", "surface-container-lowest": "#ffffff", "outline": "#887364", "primary": "#8d4b00", "tertiary": "#006b2c", "on-tertiary-container": "#f7fff2", "secondary-fixed": "#ffdbc8", "inverse-on-surface": "#f7efea", "on-primary": "#ffffff", "outline-variant": "#dbc2b0", "surface-tint": "#904d00", "surface-container-high": "#eee7e1", "tertiary-fixed": "#7ffc97", "on-primary-fixed": "#2f1500", "surface": "#fff8f4", "on-primary-container": "#fffbff", "on-secondary-container": "#795a48", "inverse-surface": "#33302c", "error-container": "#ffdad6", "secondary-fixed-dim": "#e7bea8", "surface-variant": "#e9e1dc", "background": "#fff8f4", "error": "#ba1a1a", "tertiary-container": "#00873a", "tertiary-fixed-dim": "#62df7d", "on-tertiary": "#ffffff", "inverse-primary": "#ffb77d", "on-surface-variant": "#554336", "on-tertiary-fixed": "#002109", "secondary": "#775845", "on-surface": "#1e1b18", "on-error": "#ffffff", "surface-dim": "#e0d9d3", "surface-bright": "#fff8f4", "surface-container-highest": "#e9e1dc", "on-secondary-fixed-variant": "#5d402f", "primary-container": "#b15f00", "primary-fixed": "#ffdcc3", "on-secondary": "#ffffff", "on-primary-fixed-variant": "#6e3900", "on-background": "#1e1b18", "on-error-container": "#93000a", "primary-fixed-dim": "#ffb77d" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-xl": "2rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-md": "1rem", "margin": "2rem", "gutter": "1.5rem", "gutter-mobile": "1rem", "margin-mobile": "1rem" }, fontFamily: { "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-sm": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "body-md": ["Inter"], "label-lg": ["Inter"], "headline-xl": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"] }, fontSize: { "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }], "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "700" }], "headline-xl-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }], "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }] } } } }</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="CafeSync Brand Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1UPjDACSXYOk0rrR9e3r6XB-vPYb2sNX340imjSzJB1p1C6zmWdDtIdgwJhjRH68_VijTbi7GdpsohxQjI8nXwk0rIw6sh5vPeDkKZC6EMgDKxBaNqheDTOZuqizqdIl8zqwr8bedwfHTzc3yTNLAZgPhy_qJaBJ61KzNk5dGFXhPXrr5WOepDMJIKazD-PXXxGDi5IIXIhoKnJc_v09UDZh6XE1JHjAzQjUOJEO4ZH"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-1"><span class="font-headline-sm text-headline-sm text-on-surface truncate">CafeSync</span><div class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse" title="Live Sync Active"></div></div><span class="font-label-sm text-label-sm text-on-surface-variant truncate">Pos Terminal</span></div></div><div class="flex items-center gap-space-xs"><div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-full"><span class="material-symbols-outlined text-tertiary text-sm leading-none">sync</span><span class="font-label-sm text-label-sm text-tertiary">Online</span></div><button class="w-11 h-11 flex items-center justify-center p-0.5" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJQOyOno_YvHXJNylihUmuAFhQ7kOvwCZdc0M5kuLoIN6Z50aGddqgIwJlDlALi-WbOBBGofjcVQ5iqMybv4NPYO_JYKWZ8_A84xLO0DqkqCBBQ2TMOCuViEMEhJN3XzQN17KOFctik2xkwm6SlCq97GrbQd9yYqLqZc0UuPkZrfV8oJNvPy9acJ6o21kqYKH_rBfrVz5GVpw-T5AlZ_2jGbky5px9zVJWPCAlcXM"/></button></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface flex-1"><div class="flex flex-col w-full pb-6">
+<!-- Active Cashier & Shift Bar -->
+<section class="px-gutter-mobile pt-space-sm pb-space-sm bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between gap-space-xs">
+<!-- Cashier Profile -->
+<div class="flex items-center gap-2 min-w-0">
+<div class="relative flex-shrink-0">
+<img class="w-9 h-9 rounded-full object-cover" data-alt="Warm portrait photograph of Sarah Jenkins smiling barista with dark apron in modern coffee bar interior, soft ambient warm sunlight and specialty coffee gear in background, professional aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5otDB8HVzJozmlQl2xAzPCzfYqjBAgfIbg0jCDORmhNjZs-2e5TaRBGvrNXm5pvB7i3Jaydj92Thy_RTMUuxY2RQbQJWLaMRK6U3yxFrvjvzotJNYUcV6z-KFWC_QT8uex1i7Cv3YSeScDPdRV8B92cfwdkUMjsdSgf-YdSNi_Bvvwh8OR0tWDlasCauAcqNUZrUXbm1J9_ZHJiuKAQyFKob0lTCAY4NeIl_z5Gw"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary shadow-[0_0_8px_rgba(0,107,44,0.7)] animate-pulse"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Sarah J.</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container">Barista</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+<span class="font-label-sm text-label-sm tracking-tight font-medium">03h 42m active</span>
+</div>
+</div>
+</div>
+<!-- Quick Shift Controls -->
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container transition-all active:scale-95 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">pause_circle</span>
+<span class="font-label-sm text-label-sm">Break</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container-highest text-on-surface-variant hover:bg-error-container hover:text-on-error-container transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-[16px]">logout</span>
+<span class="font-label-sm text-label-sm">Clock Out</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Sticky Operational Search & Scanner -->
+<section class="sticky top-16 z-30 px-gutter-mobile pt-3 pb-2 bg-surface/95 backdrop-blur-md">
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full h-11 pl-10 pr-10 rounded-xl bg-surface-container text-on-surface placeholder:text-on-surface-variant font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all shadow-inner" placeholder="Search coffee, pastries, drinks..." type="text"/>
+<button class="absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors p-1" type="button">
+<span class="material-symbols-outlined text-[18px]">clear</span>
+</button>
+</div>
+<button class="h-11 px-3.5 flex items-center justify-center gap-1.5 rounded-xl bg-surface-container-high text-on-surface hover:bg-secondary-container hover:text-on-secondary-container transition-all active:scale-95 shadow-sm" title="Scan Barcode / SKU" type="button">
+<span class="material-symbols-outlined text-[20px] text-primary">barcode_scanner</span>
+</button>
+</div>
+<!-- Category Pills Switcher -->
+<div class="flex items-center gap-2 overflow-x-auto pt-3 pb-1 no-scrollbar -mx-gutter-mobile px-gutter-mobile">
+<button class="px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md flex-shrink-0 shadow-sm transition-transform active:scale-95" type="button">All Items</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md flex-shrink-0 hover:bg-surface-container-high hover:text-on-surface transition-all active:scale-95" type="button">Espresso</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md flex-shrink-0 hover:bg-surface-container-high hover:text-on-surface transition-all active:scale-95" type="button">Cold Brew</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md flex-shrink-0 hover:bg-surface-container-high hover:text-on-surface transition-all active:scale-95" type="button">Pastries</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md flex-shrink-0 hover:bg-surface-container-high hover:text-on-surface transition-all active:scale-95" type="button">Seasonal Specials</button>
+</div>
+</section>
+<!-- Live Order Notification Toast -->
+<div class="mx-gutter-mobile mt-2 mb-2 p-2.5 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-tertiary text-[20px] flex-shrink-0">wifi_tethering</span>
+<p class="font-label-sm text-label-sm truncate">Table 04 synced to Cart #143 • Barista Station 1</p>
+</div>
+<span class="font-label-sm text-label-sm font-semibold bg-tertiary text-on-tertiary px-2 py-0.5 rounded-full flex-shrink-0">Synced</span>
+</div>
+<!-- Menu Catalog 2-Column Mobile Grid -->
+<section class="px-gutter-mobile mt-1 mb-6">
+<div class="flex items-center justify-between mb-3">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Menu Catalog</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Showing 6 available items</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Card 1: Caramel Macchiato -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+<div class="relative h-28 w-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Artisanal layered iced caramel macchiato in a clear tall glass with golden caramel drizzle down the sides, espresso shot pouring into cold textured milk on modern wooden cafe counter with warm ambient lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLAoW6tfZeRCHgCUjwK385_zbJpJRTPXUuazxX13v_BkXfiJT86uPh1fYJKKzKO7vEn0ptxTeDoYgaEtqt2ZdbcVg_zbWu2aRXMAGFqUYUO-NxTVr_AAuzr2_Ct8F__kbYNTFcFE_m7CZcOZd8Qi7xAZk9nMORMmm6SAzxb7x6t4nrYaNd1F6FS7ZG9HeHY784LhUv0v8HtOzM9KAG9dfTOlVMZTlcFoO9DCZbHJo"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm shadow-sm">18 left</span>
+</div>
+<div class="p-3 flex flex-col justify-between flex-1">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold truncate leading-tight">Caramel Macchiato</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Espresso • Vanilla</p>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$5.25</span>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center hover:bg-primary active:scale-90 transition-all shadow-sm" title="Add Caramel Macchiato" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 2: Signature Cold Brew -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+<div class="relative h-28 w-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Rich single-origin signature nitro cold brew coffee in a heavy rocks glass with crystal clear ice cubes, dark amber crema reflections, backlit by morning cafe window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ-0u5Jrluer8_BZ632u7xG5dqTcy4FQ5Li5mSnxOkkKqehwIpZEKx13lzcYWhIcNLH_FVIgTBUTzRK7EB9QnqHR4WG8cmsTfjYhLLMd83RKrQZipIlFWNjPAFeoiMvRTbweE7efzItzZlGZr3K4lvhAYTfbUpgqizN7np0gxPrdHRBLnKMLCwE6gywf7ux-0jzE_j40v15oHMR70LF6DTAhHwceds5SvREUToLSk"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm shadow-sm">14 left</span>
+</div>
+<div class="p-3 flex flex-col justify-between flex-1">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold truncate leading-tight">Signature Cold Brew</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">18hr Steep • Citrus</p>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$4.50</span>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center hover:bg-primary active:scale-90 transition-all shadow-sm" title="Add Signature Cold Brew" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 3: Oat Milk Flat White -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+<div class="relative h-28 w-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Velvety oat milk flat white with intricate rosetta latte art in a matte ceramic clay cup, soft steamy surface, warm cinnamon undertones and roasted coffee beans scattered nearby" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_k2ZtLtXex33PJfhOpLinsS69lcoGqXfFIGrgAPUEZJDr3uOpr8v8uEyXvNpbdB01V61ueHqm3uMHt5klO3R_RfelXX12OC_z0xGBD8I0aM160qHyB2UZTGe_hgySkJ_Foa2Hu_7MgH5CxyD7ucR22Aidjorh3VP8og0f_BQb0InH9TQ72IqN3lTAkqxIBZ-2gWf9SVaqywBOgO7kgRjQj9zyhTSFGxh3HMggD-0"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm shadow-sm">8 left</span>
+</div>
+<div class="p-3 flex flex-col justify-between flex-1">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold truncate leading-tight">Oat Flat White</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Double Ristretto</p>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$4.95</span>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center hover:bg-primary active:scale-90 transition-all shadow-sm" title="Add Oat Flat White" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 4: Almond Croissant -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+<div class="relative h-28 w-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Golden brown flaky almond croissant topped with powdered sugar and toasted sliced almonds on parchment paper, fresh French bakery presentation with morning cafe warmth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPmR2hCbV5u3KAH7r25PPi-b-ioXKJ85PI13YLOeZZdoKMTe9Q6eq8PRo_yHRyQswkvzNQOpnRny5uUCBxI9948KaXwIwcMsP69er9Y3KRg73kR0hS5BAsROpwA4wsjWsp4ArBzYw-DhqVBgixYtFkc5Dp7bH7W6KuEZ0eVeD7tPr_KbyzhN9d_D2Ic0Kh6A_6xwcn_542QiyZ36nZn23hF0KRQUokQtRTdWysWEI"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm shadow-sm">5 left</span>
+</div>
+<div class="p-3 flex flex-col justify-between flex-1">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold truncate leading-tight">Almond Croissant</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Frangipane • Toasted</p>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$3.75</span>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center hover:bg-primary active:scale-90 transition-all shadow-sm" title="Add Almond Croissant" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 5: Pecan Cinnamon Roll -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+<div class="relative h-28 w-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Warm decadent cinnamon roll drizzled with vanilla cream cheese glaze and topped with roasted candied pecans, bakery display with deep golden brown crust and gooey spiral core" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFz6_Cs8nWiZzGuODlZH_YYV1D3ek8-mYtFAzBYVDrhcAYX4PSnPfuIi4Bx9jWwAw10O_35rMEoBPyKcAH1kbzZtRpA2F5Wnk_BrZY5rfQCLW1JKorTkwPD7XETZ2qiwbbBoRK1dbZHcmT_ITCCmI2h-CSSg-D8RyyOlez7x5RGh7Niwf-xOipOlBVhHL5FBtcVYXN-MLBz6L4ZVEzhSN9b30Or_ENSE3VUzuB-aI"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm shadow-sm">12 left</span>
+</div>
+<div class="p-3 flex flex-col justify-between flex-1">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold truncate leading-tight">Pecan Cinnamon Roll</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Cream Cheese • Pecans</p>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$4.20</span>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center hover:bg-primary active:scale-90 transition-all shadow-sm" title="Add Pecan Cinnamon Roll" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Card 6: Spiced Chai Latte -->
+<article class="flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+<div class="relative h-28 w-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Frothy spiced masala chai latte in a rustic mug, dusted with ground star anise and cinnamon stick garnish, warm cozy coffee shop atmosphere with earthy tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlVDI1e_4rZpMhRydlGXwE33L0VVc1Dd-6i4QvnSbroMuSX7C_9inSnqfFr0IiPI0x6Ls_VuXXBB1pjpZKwlNL159vqwrPLw0tqGi-7mg2EAzIwoV8Gr-RsryyFsM0ZpPAEmAQ5_OVF2hDIs1R0c5DtHIMwdKPLoK7WnOHh4DALThO1u_CG3mdJzZ0nsu4MakAt1dc46aPO9nFG8keWJqkypS2wPstoveWqJpLYmE"/>
+<span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm shadow-sm">21 left</span>
+</div>
+<div class="p-3 flex flex-col justify-between flex-1">
+<div>
+<h3 class="font-label-lg text-label-lg text-on-surface font-semibold truncate leading-tight">Spiced Chai Latte</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Black Tea • Cardamom</p>
+</div>
+<div class="flex items-center justify-between mt-3 pt-2">
+<span class="font-headline-sm text-headline-sm text-primary font-bold">$4.80</span>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center hover:bg-primary active:scale-90 transition-all shadow-sm" title="Add Spiced Chai" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Live Cart & Order Summary Persistent Drawer -->
+<section class="mx-gutter-mobile bg-surface-container-lowest rounded-xl p-4 shadow-md flex flex-col gap-4">
+<!-- Cart Header & Dine-In / Takeaway Toggle -->
+<div class="flex items-center justify-between pb-3 bg-surface-container-low -mx-4 -mt-4 p-4 rounded-t-xl">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Order #143</h3>
+<span class="px-2 py-0.2 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">3 items</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Table 04 • Fast Track</span>
+</div>
+</div>
+<!-- Dine In / Takeaway Toggle Pills -->
+<div class="flex bg-surface-container p-0.5 rounded-lg shadow-inner">
+<button class="px-2.5 py-1 rounded-md bg-secondary text-on-secondary font-label-sm text-label-sm transition-all shadow-sm" type="button">Dine In</button>
+<button class="px-2.5 py-1 rounded-md text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-all" type="button">Takeaway</button>
+</div>
+</div>
+<!-- Itemized Order Items List -->
+<div class="flex flex-col gap-3">
+<!-- Item 1: Cold Brew x2 -->
+<div class="flex items-start justify-between gap-2 p-2.5 rounded-xl bg-surface-container-low transition-colors">
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-baseline gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Signature Cold Brew</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">$9.00</span>
+</div>
+<div class="flex items-center gap-1.5 mt-1 flex-wrap">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">Less Ice</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">Oat Milk</span>
+<button class="font-label-sm text-label-sm text-primary underline ml-1 hover:text-primary-container" type="button">Edit</button>
+</div>
+</div>
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-surface-container-lowest rounded-lg p-1 shadow-sm flex-shrink-0">
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+</button>
+<span class="w-6 text-center font-label-md text-label-md text-on-surface font-bold">2</span>
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 2: Almond Croissant x1 -->
+<div class="flex items-start justify-between gap-2 p-2.5 rounded-xl bg-surface-container-low transition-colors">
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-baseline gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Almond Croissant</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">$3.75</span>
+</div>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">local_fire_department</span>
+              Warmed
+            </span>
+<button class="font-label-sm text-label-sm text-primary underline ml-1 hover:text-primary-container" type="button">Edit</button>
+</div>
+</div>
+<!-- Quantity Stepper -->
+<div class="flex items-center bg-surface-container-lowest rounded-lg p-1 shadow-sm flex-shrink-0">
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+</button>
+<span class="w-6 text-center font-label-md text-label-md text-on-surface font-bold">1</span>
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Discount / Note Voucher Accordion -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]">loyalty</span>
+<span class="font-medium text-on-surface">Member Perks: Gold Club 10% Off</span>
+</div>
+<span class="text-tertiary font-semibold">Applied</span>
+</div>
+<!-- Financial Breakdown Calculations -->
+<div class="flex flex-col gap-1.5 pt-1">
+<div class="flex justify-between items-center text-on-surface-variant font-body-sm text-body-sm">
+<span>Subtotal</span>
+<span>$12.75</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-body-sm text-body-sm">
+<span>Cafe Discount (Loyalty Promo)</span>
+<span class="text-tertiary">-$1.00</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-body-sm text-body-sm">
+<span>Tax (State &amp; Local 8%)</span>
+<span>$1.02</span>
+</div>
+<div class="flex justify-between items-center pt-2 mt-1 bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Total Due</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">$12.77</span>
+</div>
+</div>
+</div>
+<!-- Payment Method Toggle Options -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase tracking-wider">Select Payment Method</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-2.5 px-2 rounded-xl bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all flex flex-col items-center justify-center gap-1 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+<span class="font-label-sm text-label-sm font-semibold">Cash</span>
+</button>
+<button class="py-2.5 px-2 rounded-xl bg-primary text-on-primary transition-all shadow-md flex flex-col items-center justify-center gap-1 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">qr_code_2</span>
+<span class="font-label-sm text-label-sm font-semibold">QRIS</span>
+</button>
+<button class="py-2.5 px-2 rounded-xl bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all flex flex-col items-center justify-center gap-1 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">credit_card</span>
+<span class="font-label-sm text-label-sm font-semibold">Card</span>
+</button>
+</div>
+</div>
+<!-- Primary Action: Warm Amber Checkout CTA -->
+<button class="w-full py-3.5 px-4 rounded-xl bg-primary-container hover:bg-primary active:scale-[0.98] transition-all text-on-primary-container font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-md" type="button">
+<span class="material-symbols-outlined text-[22px]">qr_code_scanner</span>
+<span>Process Payment &amp; Generate QR</span>
+<span class="font-bold ml-1">($12.77)</span>
+</button>
+</section>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(44,22,8,0.06)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center gap-0.5 min-w-[64px] min-h-[44px] transition-colors text-primary font-semibold" data-path="pos-terminal" href="#"><span class="material-symbols-outlined text-[22px]">point_of_sale</span><span class="font-label-sm text-label-sm">POS</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[64px] min-h-[44px] text-on-surface-variant transition-colors" data-path="raw-inventory" href="#"><span class="material-symbols-outlined text-[22px]">inventory_2</span><span class="font-label-sm text-label-sm">Inventory</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[64px] min-h-[44px] text-on-surface-variant transition-colors" data-path="executive-analytics" href="#"><span class="material-symbols-outlined text-[22px]">monitoring</span><span class="font-label-sm text-label-sm">Analytics</span></a><a class="flex flex-col items-center justify-center gap-0.5 min-w-[64px] min-h-[44px] text-on-surface-variant transition-colors" data-path="staff-portal" href="#"><span class="material-symbols-outlined text-[22px]">badge</span><span class="font-label-sm text-label-sm">Staff</span></a></div></nav></body></html>

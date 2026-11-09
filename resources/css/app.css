@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+
+@source '../../resources/views/**/*.blade.php';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --color-canvas: #FDFBF7;
+    --color-surface-lowest: #FFFFFF;
+    --color-surface-low: #FAF2ED;
+    --color-surface-container: #F4ECE7;
+    --color-surface-high: #EEE7E1;
+    --color-brand-espresso: #3B2314;
+    --color-brand-espresso-dark: #2A180E;
+    --color-brand-amber: #D97706;
+    --color-brand-amber-hover: #B45309;
+    --color-hairline: #E7E5E4;
+    --color-deep-charcoal: #1E1B18;
+    --color-text-muted: #78716C;
+
+    --font-heading: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-tabular {
+    font-feature-settings: "tnum" 1;
+    font-variant-numeric: tabular-nums;
+}

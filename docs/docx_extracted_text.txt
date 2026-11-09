@@ -1,0 +1,382 @@
+﻿CafeSync - Information System Specification
+2. Bisnis Proses Flowchart (Business Process Flowchart)
+Overview
+CafeSync automates operational workflows across three key roles: Staff/Cashier, HRD, and Manager. Below are the text-based business process flowcharts with full branching logic.
+2.1 User Authentication & Role Routing Flowchart
+Start: User launches CafeSync application and inputs credentials (email/username and password).
+Condition (Credentials Check):
+IF Invalid: System increments failed login counter. If failed attempts < 3, display "Invalid Credentials" error and prompt retry. If failed attempts >= 3, flag account as temporarily locked for 15 minutes and log security event.
+IF Valid: System retrieves user role (STAFF, HRD, MANAGER) and routes to designated portal.
+Role Routing Branch:
+Branch 1 (STAFF): Redirect to POS Order & Attendance Terminal.
+Branch 2 (HRD): Redirect to HR Management & Payroll Portal.
+Branch 3 (MANAGER): Redirect to Executive Analytics & Inventory Approval Dashboard.
+[START] -> (Input Email & Password) -> {Check Credentials}
+                                            |
+                  +-------------------------+-------------------------+
+                  | Invalid                                           | Valid
+|---|
+      {Failed Attempts >= 3?}                              {Check User Role}
+         /          \                                       /        |        \
+       Yes           No                               Staff      HRD     Manager
+        |             |                                 |         |         |
+        v             v                                 v         v         v
+[Lock Account]  [Show Error & Retry]              [POS Portal] [HR Portal] [Manager Dashboard]
+2.2 POS Order & Payment Processing Flowchart
+Start: Cashier selects menu items from catalog grid.
+Condition (Stock Availability Check):
+IF Stock < Required: System blocks item addition, displays "Insufficient Ingredient Stock" warning, and highlights missing raw ingredients.
+IF Stock >= Required: Item added to active cart order.
+Action: Cashier initiates checkout and selects payment method.
+Payment Branch:
+Branch A (Cash Payment): Cashier inputs cash tendered. IF cash < order total, prompt for remaining balance. ELSE, system calculates change, confirms payment, and prints receipt.
+Branch B (QRIS Dynamic Payment): System requests QRIS API payload, displays QR barcode on customer screen, and polls payment gateway status. IF payment times out (3 minutes), cancel QR transaction. IF payment succeeds, trigger success callback.
+Post-Payment Action: System automatically deducts raw ingredient stocks, updates real-time daily revenue metrics, and sends order ticket to kitchen display screen.
+End: Order completed.
+[START] -> (Select Items) -> {Stock Available?}
+                                 |
+              +------------------+------------------+
+              | Insufficient                        | Sufficient
+              v                                     v
+   [Show Stock Warning]                    (Add to Cart & Checkout)
+                                                    |
+                                          {Select Payment Method}
+                                           /                   \
+                                      ( Cash )               ( QRIS )
+                                         |                      |
+                                (Enter Tendered)        (Generate QR Code)
+                                         |                      |
+                                {Tendered >= Total?}    {Payment Confirmed?}
+                                 /            \          /            \
+                               Yes            No       Yes            No
+                                |              |        |              |
+                                v              v        v              v
+                         [Calc Change]    [Prompt Balance] [Deduct Stock] [Cancel QR]
+                                |                       |
+                                +-----------+-----------+
+                                            |
+                                            v
+                                   [Print Receipt & End]
+2.3 HR Attendance & Shift Management Flowchart
+Start: Employee scans NFC ID card or enters PIN at login terminal.
+Condition (Shift Validation Check):
+IF Scheduled Shift Active: Log Clock-In timestamp, mark status as "On Time".
+IF Late (> 15 mins): Log Clock-In timestamp, mark status as "Late", send notification to HRD dashboard.
+IF Unscheduled: Prompt for Manager override approval code.
+End Shift Action: Employee initiates Clock-Out. System calculates total working hours. IF total hours > scheduled hours, log extra hours into Overtime Accumulator for payroll calculation.
+[START] -> (Scan ID / Enter PIN) -> {Check Shift Schedule}
+                                           |
+             +-----------------------------+-----------------------------+
+             | Scheduled & On Time         | Late (>15 mins)             | Unscheduled
+             v                             v                             v
+     [Log Clock-In: On Time]       [Log Clock-In: Late]        [Prompt Manager Override]
+             |                             |                             |
+             +-----------------------------+-----------------------------+
+                                           |
+                                           v
+                                   (Working Shift)
+                                           |
+                                           v
+                                   (Clock-Out Trigger)
+                                           |
+                                           v
+                                 {Hours > Schedule?}
+                                  /               \
+                                Yes               No
+                                 |                 |
+                                 v                 v
+                        [Log Overtime]      [Log Standard Hours]
+                                 |                 |
+                                 +--------+--------+
+                                          |
+                                          v
+                                   [Save to Payroll DB]
+3. Use Case Diagram
+Overview
+The Use Case Diagram defines the interactions between system actors (Staff/Cashier, HRD, Manager, and System/Payment Gateway) and core application functions.=====================================================================================
+                           CAFESYNC SYSTEM BOUNDARY
+=====================================================================================
+  ACTORS                                     USE CASES
+ [ Staff / Cashier ] --------+-----------> ( UC-01: Login & Authenticate )
+                             |-----------> ( UC-02: Clock In / Clock Out )
+                             |-----------> ( UC-03: Process POS Sale Order )
+                             |                  |
+                             |                  +--- <<include>> ---> ( UC-04: Calculate Tax & Total )
+                             |                  +--- <<include>> ---> ( UC-05: Deduct Ingredient Stock )
+                             |-----------> ( UC-06: Process QRIS Payment ) <--- [ QRIS Gateway ]
+ [ HRD Manager ] ------------+-----------> ( UC-01: Login & Authenticate )
+                             |-----------> ( UC-07: Manage Employee Profiles )
+                             |-----------> ( UC-08: Schedule Staff Shifts )
+                             |-----------> ( UC-09: Review Attendance Logs )
+                             |-----------> ( UC-10: Process Monthly Payroll )
+ [ Cafe Manager ] -----------+-----------> ( UC-01: Login & Authenticate )
+                             |-----------> ( UC-11: View Sales Analytics Dashboard )
+                             |-----------> ( UC-12: Manage Menu Items & Pricing )
+                             |-----------> ( UC-13: Manage Inventory & Thresholds )
+                             |-----------> ( UC-14: Approve Restock Purchase Orders )
+                             |-----------> ( UC-15: Export Financial Audit Reports )
+=====================================================================================
+Use Case Specifications Table
+Use Case ID
+Primary Actor
+Description
+UC-01
+Staff, HRD, Manager
+Validates user credentials and enforces Role-Based Access Control (RBAC).
+UC-03
+Staff
+Allows cashiers to build orders, calculate totals, choose payment methods, and generate receipts.
+UC-05
+System
+Automatically subtracts recipe ingredients from current stock upon sale completion.
+UC-10
+HRD
+Aggregates attendance logs, hourly wages, and overtime hours to calculate employee monthly compensation.
+UC-14
+Manager
+Reviews low-stock alerts and approves purchase requisitions sent to ingredient suppliers.
+4. Activity Diagram
+Activity Diagram: Process POS Sale Order & Stock Deduction
+  STAFF / CASHIER                        SYSTEM                             DATABASE
+        |                                   |                                   |
+  (1) Select Menu Items ------------------->|                                   |
+        |                                   |--(2) Fetch Ingredient Recipe ---->|
+        |                                   |<--(3) Return Stock Levels --------|
+        |                                   |                                   |
+        |                               {Stock >= Recipe?}                      |
+        |                               /                \                      |
+        |                           [ No ]              [ Yes ]                 |
+        |                             |                    |                    |
+        |<-- (4a) Show Stock Alert ---+                    |                    |
+        |                                                  v                    |
+        |<-- (4b) Display Cart & Total Summary -------------+                   |
+        |                                                                       |
+  (5) Select Payment Method                                                     |
+        |                                                                       |
+     +--+-----------------------+                                               |
+     | Cash                     | QRIS                                          |
+     v                          v                                               |
+  (6a) Input Tendered      (6b) Request QR Code                                |
+     |                          |                                               |
+     v                          v                                               |
+  (7a) Calculate Change    (7b) Poll QRIS API Gateway                          |
+     |                          |                                               |
+     +------------+-------------+                                               |
+                  |                                                             |
+                  v                                                             |
+            (8) Confirm Payment ----------------------------------------------->|
+                  |                                                             |
+                  |--(9) Subtract Raw Ingredient Stock Quantities ------------->|
+                  |--(10) Log Transaction Record & Update Daily Sales ----------->|
+                  |                                                             |
+        |<--(11) Print Customer Receipt & Send Ticket to Kitchen --------------|
+        v
+      [END]
+5. ERD (Entity Relationship Diagram)
+Entity Relationship Mapping
+USERS (1) -------- (N) ATTENDANCE [One User has many Attendance logs]
+USERS (1) -------- (N) ORDERS [One Staff member processes many Orders]
+ORDERS (1) ------- (N) ORDER_DETAILS [One Order contains many Order Detail lines]
+MENU (1) --------- (N) ORDER_DETAILS [One Menu item appears in many Order Details]
+MENU (1) --------- (N) RECIPES [One Menu item consists of many Recipe ingredients]
+INGREDIENTS (1) --- (N) RECIPES [One Ingredient is used in many Recipes]
+INGREDIENTS (1) --- (N) RESTOCK_REQUESTS [One Ingredient can trigger many Restock Requests]
+USERS (1) -------- (N) RESTOCK_REQUESTS [One Manager approves many Restock Requests]
+ASCII ERD Structure
++------------------+       1:N       +------------------+
+|      USERS       |---------------->|    ATTENDANCE    |
++------------------+                 +------------------+
+| PK user_id       |                 | PK attendance_id |
+|    full_name     |                 | FK user_id       |
+|    email         |                 |    clock_in      |
+|    password_hash |                 |    clock_out     |
+|    role          |                 |    total_hours   |
+|    hourly_rate   |                 +------------------+
++------------------+
+  |             |
+  | 1:N         | 1:N
+  v             v
++------------------+                 +---------------------+
+|      ORDERS      |                 |  RESTOCK_REQUESTS   |
++------------------+                 +---------------------+
+| PK order_id      |                 | PK request_id       |
+| FK user_id       |                 | FK ingredient_id    |
+|    total_amount  |                 | FK approved_by_user |
+|    payment_type  |                 |    quantity_needed  |
+|    created_at    |                 |    status           |
++------------------+                 +---------------------+
+  |                                     ^
+  | 1:N                                 | 1:N
+  v                                     |
++------------------+                 +---------------------+
+|  ORDER_DETAILS   |                 |     INGREDIENTS     |
++------------------+                 +---------------------+
+| PK detail_id     |                 | PK ingredient_id    |
+| FK order_id      |                 |    item_name        |
+| FK menu_id       |                 |    current_stock    |
+|    quantity      |                 |    unit             |
+|    subtotal      |                 |    min_threshold    |
++------------------+                 +---------------------+
+  ^                                     ^
+  | N:1                                 | 1:N
+  |                                     |
++------------------+       N:1       +---------------------+
+|       MENU       |<----------------|       RECIPES       |
++------------------+                 +---------------------+
+| PK menu_id       |                 | PK recipe_id        |
+|    item_name     |                 | FK menu_id          |
+|    price         |                 | FK ingredient_id    |
+|    category      |                 |    amount_required  |
++------------------+                 +---------------------+
+6. Database Schema
+SQL Data Definition Language (DDL) Scripts
+-- Database Creation
+CREATE DATABASE IF NOT EXISTS cafesync_db;
+USE cafesync_db;
+-- 1. Users Table (Role-Based Access)
+CREATE TABLE users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    role ENUM('STAFF', 'HRD', 'MANAGER') NOT NULL DEFAULT 'STAFF',
+    hourly_rate DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+-- 2. HR Attendance Logs
+CREATE TABLE attendance (
+    attendance_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    clock_in DATETIME NOT NULL,
+    clock_out DATETIME NULL,
+    total_hours DECIMAL(5,2) DEFAULT 0.00,
+    status ENUM('ON_TIME', 'LATE', 'OVERTIME') DEFAULT 'ON_TIME',
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+);
+-- 3. Ingredients Inventory Table
+CREATE TABLE ingredients (
+    ingredient_id INT PRIMARY KEY AUTO_INCREMENT,
+    item_name VARCHAR(100) NOT NULL,
+    current_stock DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    unit VARCHAR(20) NOT NULL, -- e.g., 'grams', 'ml', 'pcs'
+    minimum_threshold DECIMAL(10,2) NOT NULL DEFAULT 10.00,
+    unit_cost DECIMAL(10,2) NOT NULL DEFAULT 0.00
+);
+-- 4. Menu Catalog Table
+CREATE TABLE menu (
+    menu_id INT PRIMARY KEY AUTO_INCREMENT,
+    item_name VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    category VARCHAR(50) NOT NULL, -- e.g., 'Espresso', 'Cold Brew', 'Bakery'
+    is_available BOOLEAN DEFAULT TRUE
+);
+-- 5. Recipes Junction Table (Menu - Ingredients Mapping)
+CREATE TABLE recipes (
+    recipe_id INT PRIMARY KEY AUTO_INCREMENT,
+    menu_id INT NOT NULL,
+    ingredient_id INT NOT NULL,
+    amount_required DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (menu_id) REFERENCES menu(menu_id) ON DELETE CASCADE,
+    FOREIGN KEY (ingredient_id) REFERENCES ingredients(ingredient_id) ON DELETE CASCADE
+);
+-- 6. Orders Master Table
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL, -- Cashier who processed order
+    total_amount DECIMAL(10,2) NOT NULL,
+    payment_method ENUM('CASH', 'QRIS') NOT NULL,
+    payment_status ENUM('PENDING', 'PAID', 'FAILED') DEFAULT 'PAID',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+-- 7. Order Details Line Items
+CREATE TABLE order_details (
+    order_detail_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT NOT NULL,
+    menu_id INT NOT NULL,
+    quantity INT NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE,
+    FOREIGN KEY (menu_id) REFERENCES menu(menu_id)
+);
+-- 8. Restock Requests Table
+CREATE TABLE restock_requests (
+    request_id INT PRIMARY KEY AUTO_INCREMENT,
+    ingredient_id INT NOT NULL,
+    requested_by_user INT NOT NULL,
+    approved_by_user INT NULL,
+    quantity_requested DECIMAL(10,2) NOT NULL,
+    status ENUM('PENDING', 'APPROVED', 'REJECTED', 'COMPLETED') DEFAULT 'PENDING',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (ingredient_id) REFERENCES ingredients(ingredient_id),
+    FOREIGN KEY (requested_by_user) REFERENCES users(user_id),
+    FOREIGN KEY (approved_by_user) REFERENCES users(user_id)
+);
+7. UI/UX Wireframe
+Overview
+Text-based wireframe layouts representing the modern SaaS web architecture for CafeSync.
+Wireframe 7.1: Login Screen (Multi-Role Portal)
++-----------------------------------------------------------------------+
+|                                                                       |
+|  +---------------------------------+-------------------------------+  |
+|  | [Cafe Logo]                     |   Welcome to CafeSync         |  |
+|  |                                 |   Sign in to your account     |  |
+|  | "Streamline your cafe           |                               |  |
+|  |  operations with real-time      |   Role: [Staff|HRD|Manager]   |  |
+|  |  inventory and attendance."     |                               |  |
+|  |                                 |   Email / Username:           |  |
+|  | [Artisanal Cafe Photo Banner]   |   [                        ]  |  |
+|  |                                 |   Password:                   |  |
+|  |                                 |   [                        ]  |  |
+|  |                                 |                               |  |
+|  |                                 |   [   LOG IN TO DASHBOARD   ] |  |
+|  +---------------------------------+-------------------------------+  |
+|                                                                       |
++-----------------------------------------------------------------------+
+Wireframe 7.2: Staff Web POS Terminal & Checkout Interface
++-----------------------------------------------------------------------+
+| CafeSync POS  | Cashier: Alex  | Shift: Morning (08:00) | [Clock Out] |
++----------------------------------+------------------------------------+
+| CATALOG SEARCH & FILTERS         | CURRENT ORDER CART                 |
+| [ Search Menu...      ] [Filter] | Order #1042           Table: Takeout|
+| [All] [Espresso] [Cold Brew] [Bakery]| ---------------------------------- |
+|                                  | 1x Espresso Supreme     $ 3.50 [+]|
+| +------------------------------+ | 2x Butter Croissant     $ 8.00 [+]|
+| | Espresso Supreme    $ 3.50   | | 1x Iced Matcha Latte    $ 4.50 [+]|
+| | Stock: 45 cups      [ Add ]  | | ---------------------------------- |
+| +------------------------------+ | Subtotal:               $16.00     |
+| | Butter Croissant    $ 4.00   | | Tax (10%):             $ 1.60     |
+| | Stock: 12 pcs       [ Add ]  | | TOTAL:                  $17.60     |
+| +------------------------------+ | ---------------------------------- |
+| | Iced Matcha Latte   $ 4.50   | | Payment Method:                    |
+| | Stock: 28 cups      [ Add ]  | | (x) QRIS Dynamic   ( ) Cash        |
+| +------------------------------+ |                                    |
+|                                  | [  PROCESS PAYMENT & PRINT RECEIPT ]|
++----------------------------------+------------------------------------+
+Wireframe 7.3: Manager Analytics & Inventory Control Panel
++-----------------------------------------------------------------------+
+| CafeSync Manager | Dashboard  | Range: [Last 7 Days v] | User: Manager|
++-----------------------------------------------------------------------+
+| [ Today Sales: $1,840.50 ] [ Transactions: 142 ] [ Low Stock: 3 Items ]|
++------------------------------------+----------------------------------+
+| WEEKLY REVENUE TRENDS              | LOW INGREDIENT INVENTORY ALERTS  |
+| [Bar Chart Visualization]          |                                  |
+| Mon:  |||||||||||||||||| $1,200    | - Arabica Beans: 1.2 kg (Min 5kg)|
+| Tue:  |||||||||||||||||||||| $1,500|   [ Send Reorder Request ]       |
+| Wed:  ||||||||||||||||| $1,100     | - Whole Milk: 3.0 L (Min 10L)    |
+| Thu:  |||||||||||||||||||||||| $1,840|   [ Send Reorder Request ]       |
+|                                    | - Oat Milk: OUT OF STOCK         |
+|                                    |   [ Send Urgent Reorder ]        |
++------------------------------------+----------------------------------+
+Wireframe 7.4: HRD Staff Attendance & Shift Portal
++-----------------------------------------------------------------------+
+| CafeSync HRD  | Staff & Attendance Portal        | [+ Add Employee]   |
++-----------------------------------------------------------------------+
+| Tabs: [ Employee Roster ]  [* Shift Schedules *]  [ Attendance Logs ]|
++-----------------------------------------------------------------------+
+| EMPLOYEE NAME   | ROLE     | SCHEDULED SHIFT | STATUS     | ACTIONS   |
+| Alex Rivera     | Cashier  | 08:00 - 16:00   | Clocked In | [ Edit ]  |
+| Sarah Chen      | Barista  | 08:00 - 16:00   | Clocked In | [ Edit ]  |
+| David Miller    | Kitchen  | 12:00 - 20:00   | Scheduled  | [ Edit ]  |
+| Emma Watson     | Cashier  | 16:00 - 00:00   | Off        | [ Edit ]  |
++-----------------------------------------------------------------------+
