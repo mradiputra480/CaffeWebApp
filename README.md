@@ -2,13 +2,15 @@
 
 <p align="center">
   <a href="https://mradiputra480.github.io/CaffeWebApp/">
-    <img src="https://img.shields.io/badge/Live_Demo-GitHub_Pages-D97706?style=for-the-badge&logo=github&logoColor=white" alt="Live Demo GitHub Pages">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-Click_to_Launch_App-D97706?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo">
+  </a>
+  <a href="https://github.com/mradiputra480">
+    <img src="https://img.shields.io/badge/Author-Mr._Adi_Putra-3B2314?style=for-the-badge&logo=github&logoColor=white" alt="Author Mr. Adi Putra">
   </a>
   <img src="https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 12">
   <img src="https://img.shields.io/badge/PHP-8.3-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.3">
   <img src="https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS 4">
   <img src="https://img.shields.io/badge/Alpine.js-3.x-8BC0D0?style=for-the-badge&logo=alpinedotjs&logoColor=white" alt="Alpine.js 3">
-  <img src="https://img.shields.io/badge/Database-MySQL_%7C_SQLite-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL & SQLite">
   <img src="https://img.shields.io/badge/Tests-53%20Passed%20(100%25)-16A34A?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Tests 53 Passed">
   <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License MIT">
 </p>
@@ -25,17 +27,24 @@
 
 ---
 
-## 🌐 Live Demonstrations & Quick Access
+## 🌐 Live Web Demonstration
 
-### 1. Interactive Web Showcase (Hosted on GitHub Pages)
-Explore the interactive UI components, POS catalog, and executive dashboard live directly in your browser:
-👉 **[https://mradiputra480.github.io/CaffeWebApp/](https://mradiputra480.github.io/CaffeWebApp/)**
+Experience the full interactive application live directly in your browser:
+
+### 👉 **[Launch Live Web Demo](https://mradiputra480.github.io/CaffeWebApp/)**
+**Direct Link:** `https://mradiputra480.github.io/CaffeWebApp/`
+
+> **Interactive Highlights:**
+> - ⚡ **Web POS Order Terminal:** Instant recipe stock checks, real-time cart calculations, and simulated QRIS payments.
+> - 📊 **Executive Analytics & Sales Velocity:** Hourly rush curves, labor cost ratio (LCR) auditing, and CSV/PDF export.
+> - 📋 **HR Staff Roster & Overtime:** Clock-in/out attendance tracking, tardiness detection, and payroll ledger.
+> - 📦 **Raw Inventory Ledger:** Atomic ingredient depletion tracking and restock approval workflows.
 
 ---
 
-### 2. Full-Stack Live App Demo Credentials
+### 👤 Pre-configured Demo Accounts & Roles
 
-The application includes a **1-Click Instant Demo Login** portal on the home screen (`/`), bypassing manual password entry for technical reviewers:
+The system is equipped with **1-Click Instant Demo Login** personas for seamless evaluation:
 
 | Role | Demo Persona | Email | Password | Direct Portal Route |
 | :--- | :--- | :--- | :--- | :--- |
@@ -44,7 +53,7 @@ The application includes a **1-Click Instant Demo Login** portal on the home scr
 | **HRD Manager** | David Miller | `hrd@cafesync.local` | `password123` | `/hr/roster` &bull; Staff Roster & Payroll |
 | **Cafe Manager** | Elena Vance | `manager@cafesync.local` | `password123` | `/manager/dashboard` &bull; Executive Intelligence |
 
-> 🛡️ **Brute-Force Lockout Defense Test:** Entering an invalid password three consecutive times locks the target account for 15 minutes, logging a critical security event to prevent brute-force credential stuffing.
+> 🛡️ **Brute-Force Lockout Defense:** Entering an invalid password three consecutive times locks the target account for 15 minutes, logging a critical security event to prevent brute-force credential stuffing.
 
 ---
 
@@ -134,71 +143,10 @@ The application includes a **1-Click Instant Demo Login** portal on the home scr
 
 ---
 
-## 💻 Local Setup & Installation
+## 🧪 Automated Testing & Reliability Metrics
 
-### Prerequisites
-- **PHP** `>= 8.2` (PHP 8.3 recommended)
-- **Composer** `>= 2.x`
-- **Node.js** `>= 20.x` & `npm`
+The codebase features comprehensive test coverage validating authentication, role-based security, atomic stock transactions, payroll math, and audit exports:
 
----
-
-### Option A: Zero-Config Local Setup with SQLite (Fastest)
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/mradiputra480/CaffeWebApp.git
-   cd CaffeWebApp
-   ```
-
-2. **Copy environment configuration:**
-   ```bash
-   cp .env.example .env
-   ```
-
-3. **Install dependencies:**
-   ```bash
-   composer install
-   npm install
-   ```
-
-4. **Generate Application Key & Build Assets:**
-   ```bash
-   php artisan key:generate
-   npm run build
-   ```
-
-5. **Run Migrations & Seed Demo Data:**
-   ```bash
-   php artisan migrate --seed
-   ```
-
-6. **Start the local development server:**
-   ```bash
-   php artisan serve
-   ```
-   Open your browser at `http://localhost:8000`.
-
----
-
-### Option B: Docker Compose (1 Command)
-
-```bash
-docker compose up -d
-```
-The application will spin up at `http://localhost:8080` with pre-migrated seed data and optimized production assets.
-
----
-
-## 🧪 Automated Testing Suite
-
-The codebase features comprehensive feature test coverage validating authentication, role-based security, atomic stock transactions, payroll math, and audit exports:
-
-```bash
-php artisan test
-```
-
-**Test Execution Output:**
 ```text
 PASS  Tests\Feature\AuthenticationAndRbacTest (8 tests)
 PASS  Tests\Feature\ExampleTest (3 tests)
@@ -208,19 +156,8 @@ PASS  Tests\Feature\RawInventoryAndRestockApprovalTest (11 tests)
 PASS  Tests\Feature\ShiftAttendanceAndPayrollTest (11 tests)
 
 Tests:    53 passed (270 assertions)
-Duration: ~1.9s
+Duration: ~1.9s (100% Passing)
 ```
-
----
-
-## ☁️ Cloud Deployment (Render.com)
-
-This repository includes a ready-to-deploy `render.yaml` blueprint and multi-stage `Dockerfile`:
-
-1. Sign in to [Render.com](https://render.com) using your GitHub account.
-2. Navigate to **New +** &rarr; select **Blueprint**.
-3. Connect the repository: **`mradiputra480/CaffeWebApp`**.
-4. Click **Apply**. Render will automatically build the container, run SQLite migrations and seeders, and provision a free HTTPS URL (e.g., `https://caffewebapp.onrender.com`).
 
 ---
 
@@ -248,16 +185,15 @@ CaffeWebApp/
 │   ├── views/                # Blade Templates (Warm Espresso Specialty Aesthetic)
 │   ├── css/                  # Tailwind CSS Design Tokens
 │   └── js/                   # Alpine.js Client Reactivity Handlers
-├── tests/
-│   └── Feature/              # 53 Automated Integration Test Cases
-├── Dockerfile                # Production Multi-Stage Container Definition
-├── docker-compose.yml        # Local Containerized Development Setup
-└── render.yaml               # 1-Click Cloud Deployment Blueprint
+└── tests/
+    └── Feature/              # 53 Automated Integration Test Cases
 ```
 
 ---
 
-## 📄 License & Credits
+## 👨‍💻 Author & Engineering Credits
 
-- **Author:** Software Engineer Portfolio Project
+- **Author & Lead Architect:** **Mr. Adi Putra**
+- **GitHub:** [@mradiputra480](https://github.com/mradiputra480)
+- **Repository:** [https://github.com/mradiputra480/CaffeWebApp](https://github.com/mradiputra480/CaffeWebApp)
 - **License:** Open-sourced under the [MIT License](LICENSE).
